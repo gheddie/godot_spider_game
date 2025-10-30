@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://b2ro1nufilk4n"]
+
+[ext_resource type="PackedScene" uid="uid://bfxf731uerwcx" path="res://blender/export/spider.glb" id="1_k3kcl"]
+
+[node name="spider" type="Node3D"]
+
+[node name="spider" parent="." instance=ExtResource("1_k3kcl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.20847881, 0, 0.6868279)
+
+[editable path="spider"]

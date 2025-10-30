@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://csal46ceqcauu"]
+
+[ext_resource type="PackedScene" uid="uid://b2ro1nufilk4n" path="res://spider.tscn" id="1_3h184"]
+
+[node name="Sandbox" type="Node3D"]
+
+[node name="spider" parent="." instance=ExtResource("1_3h184")]
