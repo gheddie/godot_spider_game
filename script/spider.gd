@@ -1,9 +1,13 @@
-extends StaticBody3D
+class_name Spider
+
+extends CharacterBody3D
 
 @onready var spider_animator: AnimationPlayer = $spider/AnimationPlayer
 
 @onready var buttonStartWalking: Button = $GridContainer/StartWalking
 @onready var buttonStopWalking: Button = $GridContainer/StopWalking
+
+const SPEED = 5.0
 
 const WALK_ANIMATION: String = "Animation"
 
@@ -16,7 +20,22 @@ func _ready() -> void:
 	anim.loop_mode = (Animation.LOOP_LINEAR)
 	
 func _process(delta: float) -> void:
-	pass
+	
+	if (Input.is_action_pressed("move_forward") or Input.is_action_pressed("move_backward")):
+		start_walking()
+	else:
+		stop_walking()
+	
+	var input_dir := Input.get_vector("move_forward", "move_backward", "", "")
+	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	if direction:
+		velocity.x = direction.x * SPEED
+		velocity.z = direction.z * SPEED
+	else:
+		velocity.x = move_toward(velocity.x, 0, SPEED)
+		velocity.z = move_toward(velocity.z, 0, SPEED)
+
+	move_and_slide()
 
 func connect_buttons() -> void:
 	buttonStartWalking.pressed.connect(start_walking)
