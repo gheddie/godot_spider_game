@@ -3,15 +3,11 @@
 [ext_resource type="Script" uid="uid://bco1kp8235f8a" path="res://script/spider.gd" id="1_h5k70"]
 [ext_resource type="PackedScene" uid="uid://bfxf731uerwcx" path="res://assets/blender/export/spider.glb" id="1_k3kcl"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_685mp"]
-size = Vector3(2005.417, 5.1251984, 13.874765)
+[sub_resource type="BoxShape3D" id="BoxShape3D_h5k70"]
+size = Vector3(10.6, 3.3, 10.6)
 
-[node name="Spider" type="RigidBody3D"]
+[node name="Spider" type="StaticBody3D"]
 script = ExtResource("1_h5k70")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 997.22144, 2.5256424, 0.014159203)
-shape = SubResource("BoxShape3D_685mp")
 
 [node name="spider" parent="." instance=ExtResource("1_k3kcl")]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
@@ -106,6 +102,7 @@ transform = Transform3D(-2.722521e-10, 0.97453755, -0.22422436, 8.869722e-11, 0.
 
 [node name="Camera3D" type="Camera3D" parent="spider"]
 transform = Transform3D(-10, -4.3650587e-07, 7.574542e-07, 0, 8.664267, 4.9930453, -8.742278e-07, 4.9930453, -8.664267, 0, 51.07657, -43.40424)
+current = true
 
 [node name="GridContainer" type="GridContainer" parent="."]
 anchors_preset = 15
@@ -121,5 +118,9 @@ text = "Start walking"
 [node name="StopWalking" type="Button" parent="GridContainer"]
 layout_mode = 2
 text = "Stop walking"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.65, 0)
+shape = SubResource("BoxShape3D_h5k70")
 
 [editable path="spider"]
