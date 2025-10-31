@@ -56,6 +56,8 @@ func rotate_player() -> void:
 	if (Input.is_action_pressed("turn_right")):
 		direction_indicator.rotation.y -= 0.025
 		headingIndicator.text = str(int(direction_indicator.rotation_degrees.y))
+		
+	rotation.y = deg_to_rad(direction_indicator.rotation_degrees.y)
 
 func connect_buttons() -> void:
 	buttonRestart.pressed.connect(restart_level)
