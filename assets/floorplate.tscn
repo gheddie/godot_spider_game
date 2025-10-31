@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://d3nklux16bbpf"]
+
+[ext_resource type="PackedScene" uid="uid://bxxrkhetj88eh" path="res://assets/blender/export/floorplate.glb" id="1_46w2b"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_46w2b"]
+size = Vector3(2, 0.4, 2)
+
+[node name="Floorplate" type="StaticBody3D"]
+
+[node name="floorplate" parent="." instance=ExtResource("1_46w2b")]
+transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 2, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.4901161e-08, 0)
+shape = SubResource("BoxShape3D_46w2b")

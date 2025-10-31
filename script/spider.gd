@@ -6,7 +6,7 @@ extends CharacterBody3D
 
 @onready var buttonRestart: Button = $GridContainer/RestarLevel
 
-const SPEED = 10.0
+const SPEED = 2.5
 
 const WALK_ANIMATION: String = "Animation"
 
