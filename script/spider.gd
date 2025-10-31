@@ -4,10 +4,9 @@ extends CharacterBody3D
 
 @onready var spider_animator: AnimationPlayer = $spider/AnimationPlayer
 
-@onready var buttonStartWalking: Button = $GridContainer/StartWalking
-@onready var buttonStopWalking: Button = $GridContainer/StopWalking
+@onready var buttonRestart: Button = $GridContainer/RestarLevel
 
-const SPEED = 5.0
+const SPEED = 10.0
 
 const WALK_ANIMATION: String = "Animation"
 
@@ -38,11 +37,13 @@ func _process(delta: float) -> void:
 	move_and_slide()
 
 func connect_buttons() -> void:
-	buttonStartWalking.pressed.connect(start_walking)
-	buttonStopWalking.pressed.connect(stop_walking)
+	buttonRestart.pressed.connect(restart_level)
 
 func start_walking():
 	spider_animator.play(WALK_ANIMATION)
 	
 func stop_walking():
 	spider_animator.stop()
+	
+func restart_level():
+	print("restart_level")
