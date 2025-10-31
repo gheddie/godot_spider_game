@@ -6,3 +6,29 @@
 
 [node name="spider" parent="." instance=ExtResource("1_k3kcl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.20847881, 0, 0.6868279)
+
+[node name="Skeleton3D" parent="spider/Armature2" index="0"]
+bones/1/rotation = Quaternion(0, 0, -0.005491111, 0.9999849)
+bones/2/rotation = Quaternion(0.1117237, 4.673501e-12, -4.665548e-11, 0.9937393)
+bones/3/rotation = Quaternion(-0.27145344, -2.7741878e-11, 1.7880565e-10, 0.9624516)
+bones/4/rotation = Quaternion(-0.4243059, -4.562833e-11, 6.1002293e-11, 0.90551895)
+bones/5/rotation = Quaternion(-0.30468795, 7.0094686e-09, 9.320482e-09, 0.95245224)
+bones/6/position = Vector3(50.33333, -20.00002, 0.33333048)
+bones/6/rotation = Quaternion(-0.50000006, -0.5, -0.4999999, 0.50000006)
+
+[node name="Bone_005" parent="spider/Armature2/Skeleton3D" index="0"]
+transform = Transform3D(-0.010982069, -0.24807331, 0.96867895, -1.9434983e-08, -0.9687373, -0.2480883, 0.9999397, -0.0027245414, 0.010638736, 52.82434, -10.309675, 0.3605005)
+
+[node name="Bone_004" parent="spider/Armature2/Skeleton3D" index="1"]
+transform = Transform3D(-0.010982056, 0.36020896, 0.9328069, -1.0513847e-12, -0.9328632, 0.36023065, 0.9999397, 0.003956074, 0.010244756, 49.22225, -0.98104334, 0.32093978)
+
+[node name="Bone_003" parent="spider/Armature2/Skeleton3D" index="2"]
+transform = Transform3D(-0.010982056, 0.9473088, 0.3201335, 1.7472145e-11, -0.32015282, 0.9473659, 0.9999397, 0.010404026, 0.0035159364, 39.749165, 2.2204847, 0.21689951)
+
+[node name="Bone_002" parent="spider/Armature2/Skeleton3D" index="3"]
+transform = Transform3D(-0.010982056, 0.9749768, -0.22203507, -1.971353e-11, 0.22204846, 0.9750356, 0.9999397, 0.010707896, -0.0024385487, 29.999397, 0, 0.10982056)
+
+[node name="Bone_001" parent="spider/Armature2/Skeleton3D" index="4"]
+transform = Transform3D(-0.010982056, 0.9999397, 0, 0, 0, 1, 0.9999397, 0.010982056, 0, 20, 0, 1.9895197e-13)
+
+[editable path="spider"]
