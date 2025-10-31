@@ -16,26 +16,6 @@ shape = SubResource("BoxShape3D_685mp")
 [node name="spider" parent="." instance=ExtResource("1_k3kcl")]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
 
-[node name="Skeleton3D" parent="spider/Armature3" index="0"]
-bones/2/rotation = Quaternion(0.112832725, -7.596581e-11, -2.7591357e-10, 0.993614)
-bones/3/rotation = Quaternion(-0.2740656, -9.006126e-12, 1.9341974e-10, 0.961711)
-bones/4/rotation = Quaternion(-0.42894036, -6.048965e-17, 3.3592522e-18, 0.9033328)
-bones/5/rotation = Quaternion(-0.3082227, 7.246622e-09, 9.363011e-09, 0.9513142)
-bones/6/position = Vector3(50, -20, -4.371148e-08)
-bones/6/rotation = Quaternion(0.5, -0.5, -0.5, 0.5)
-
-[node name="Bone_005" parent="spider/Armature3/Skeleton3D" index="0"]
-transform = Transform3D(-1.358414e-08, -0.26825386, 0.9633484, -1.922776e-08, -0.9633484, -0.26825386, 1, -2.2167027e-08, 7.928338e-09, 52.685295, -10.365793, -8.715372e-10)
-
-[node name="Bone_004" parent="spider/Armature3/Skeleton3D" index="1"]
-transform = Transform3D(1.15001855e-10, 0.34765467, 0.9376227, 8.67835e-11, -0.9376227, 0.34765467, 1, 4.1389277e-11, -1.3799897e-10, 49.208748, -0.9895661, -1.2854877e-09)
-
-[node name="Bone_003" parent="spider/Armature3/Skeleton3D" index="2"]
-transform = Transform3D(1.15001765e-10, 0.9463372, 0.32318097, 8.6783414e-11, -0.32318097, 0.9463372, 1, -8.078362e-11, -1.1929274e-10, 39.745377, 2.2422435, -4.7762394e-10)
-
-[node name="Bone_002" parent="spider/Armature3/Skeleton3D" index="3"]
-transform = Transform3D(-2.722521e-10, 0.97453755, -0.22422436, 8.869722e-11, 0.22422436, 0.97453755, 1, 2.4543187e-10, -1.4748433e-10, 30, 0, -2.9319143e-09)
-
 [node name="Camera3D" type="Camera3D" parent="spider"]
 transform = Transform3D(-10, -4.3650587e-07, 7.574542e-07, 0, 8.664267, 4.9930453, -8.742278e-07, 4.9930453, -8.664267, 0, 51.07657, -43.40424)
 

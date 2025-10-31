@@ -24,29 +24,6 @@ environment = SubResource("Environment_p7lbm")
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
 shadow_enabled = true
 
-[node name="GridContainer" type="GridContainer" parent="."]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="StartLeg1" type="Button" parent="GridContainer"]
-layout_mode = 2
-text = "Leg 1"
-
-[node name="StartLeg2" type="Button" parent="GridContainer"]
-layout_mode = 2
-text = "Leg 2"
-
-[node name="StartLeg3" type="Button" parent="GridContainer"]
-layout_mode = 2
-text = "Leg 3"
-
-[node name="StartLeg4" type="Button" parent="GridContainer"]
-layout_mode = 2
-text = "Leg 4"
-
 [node name="Floor" type="CSGBox3D" parent="."]
 use_collision = true
 size = Vector3(100, 1, 100)
