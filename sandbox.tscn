@@ -1,7 +1,55 @@
-[gd_scene load_steps=2 format=3 uid="uid://csal46ceqcauu"]
+[gd_scene load_steps=5 format=3 uid="uid://csal46ceqcauu"]
 
-[ext_resource type="PackedScene" uid="uid://b2ro1nufilk4n" path="res://spider.tscn" id="1_3h184"]
+[ext_resource type="PackedScene" uid="uid://bdrgqja08vwol" path="res://assets/spider.tscn" id="1_3h184"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_3h184"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_cojph"]
+sky_material = SubResource("ProceduralSkyMaterial_3h184")
+
+[sub_resource type="Environment" id="Environment_p7lbm"]
+background_mode = 2
+sky = SubResource("Sky_cojph")
+tonemap_mode = 2
+glow_enabled = true
 
 [node name="Sandbox" type="Node3D"]
 
-[node name="spider" parent="." instance=ExtResource("1_3h184")]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_p7lbm")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="GridContainer" type="GridContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="StartLeg1" type="Button" parent="GridContainer"]
+layout_mode = 2
+text = "Leg 1"
+
+[node name="StartLeg2" type="Button" parent="GridContainer"]
+layout_mode = 2
+text = "Leg 2"
+
+[node name="StartLeg3" type="Button" parent="GridContainer"]
+layout_mode = 2
+text = "Leg 3"
+
+[node name="StartLeg4" type="Button" parent="GridContainer"]
+layout_mode = 2
+text = "Leg 4"
+
+[node name="Floor" type="CSGBox3D" parent="."]
+use_collision = true
+size = Vector3(100, 1, 100)
+
+[node name="Spider" parent="." instance=ExtResource("1_3h184")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.54986, 0)
