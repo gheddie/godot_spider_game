@@ -9,6 +9,9 @@ extends CharacterBody3D
 @onready var buttonRestart: Button = $GridContainer/RestarLevel
 @onready var headingIndicator: Label = $GridContainer/HeadingIndicator
 
+# audio
+@onready var clickAudio: AudioStreamPlayer = $ClickAudio
+
 const SPEED = 0.5
 
 const WALK_ANIMATION: String = "Animation"
@@ -26,6 +29,8 @@ func _ready() -> void:
 	heading = get_global_transform().basis.x
 	
 	direction_indicator.rotation.y = 0.0
+	
+	click()
 	
 func _process(delta: float) -> void:
 	
@@ -70,3 +75,6 @@ func stop_walking():
 	
 func restart_level():
 	print("restart_level")
+	
+func click() -> void:
+	clickAudio.play()
