@@ -4,13 +4,13 @@
 [ext_resource type="PackedScene" uid="uid://bfxf731uerwcx" path="res://assets/blender/export/spider.glb" id="1_k3kcl"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_685mp"]
-size = Vector3(136.64398, 37.011536, 135.81378)
+size = Vector3(136.64398, 35.069733, 135.81378)
 
 [node name="Spider" type="RigidBody3D"]
 script = ExtResource("1_h5k70")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.082855225, 16.527008, 0.165802)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.082855225, 17.49791, 0.165802)
 shape = SubResource("BoxShape3D_685mp")
 
 [node name="spider" parent="." instance=ExtResource("1_k3kcl")]
@@ -61,5 +61,13 @@ text = "Front"
 [node name="PlayLeftLegAnimation" type="Button" parent="GridContainer"]
 layout_mode = 2
 text = "Left	"
+
+[node name="StartWalking" type="Button" parent="GridContainer"]
+layout_mode = 2
+text = "Start walking"
+
+[node name="StopWalking" type="Button" parent="GridContainer"]
+layout_mode = 2
+text = "Stop walking"
 
 [editable path="spider"]
