@@ -1,0 +1,125 @@
+[gd_scene load_steps=4 format=3 uid="uid://bdrgqja08vwol"]
+
+[ext_resource type="Script" uid="uid://bco1kp8235f8a" path="res://script/spider.gd" id="1_h5k70"]
+[ext_resource type="PackedScene" uid="uid://bfxf731uerwcx" path="res://assets/blender/export/spider.glb" id="1_k3kcl"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_685mp"]
+size = Vector3(2005.417, 5.1251984, 13.874765)
+
+[node name="Spider" type="RigidBody3D"]
+script = ExtResource("1_h5k70")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 997.22144, 2.5256424, 0.014159203)
+shape = SubResource("BoxShape3D_685mp")
+
+[node name="spider" parent="." instance=ExtResource("1_k3kcl")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+
+[node name="Skeleton3D" parent="spider/Armature4" index="0"]
+bones/1/rotation = Quaternion(0, 0, 0.0054911003, 0.9999849)
+bones/2/rotation = Quaternion(0.11172414, -5.3900998e-11, -5.152505e-10, 0.99373925)
+bones/3/rotation = Quaternion(-0.2714534, -3.4108313e-11, 2.1753044e-10, 0.9624516)
+bones/4/rotation = Quaternion(-0.4243063, 1.9352663e-10, 5.2371097e-11, 0.9055187)
+bones/5/rotation = Quaternion(-0.30468816, 7.483216e-09, 9.07412e-09, 0.9524522)
+bones/6/position = Vector3(50.33333, -20, -0.3333303)
+bones/6/rotation = Quaternion(0.5, -0.50000006, 0.5, 0.50000006)
+
+[node name="Bone_005" parent="spider/Armature4/Skeleton3D" index="0"]
+transform = Transform3D(0.01098202, -0.248074, 0.9686788, -1.9311816e-08, -0.96873724, -0.2480889, 0.9999397, 0.0027244994, -0.010638697, 52.824345, -10.30966, -0.36049977)
+
+[node name="Bone_004" parent="spider/Armature4/Skeleton3D" index="1"]
+transform = Transform3D(0.010982034, 0.36020878, 0.9328071, -3.139768e-10, -0.93286335, 0.36023057, 0.9999397, -0.003956064, -0.010244737, 49.222256, -0.98102665, -0.32093912)
+
+[node name="Bone_003" parent="spider/Armature4/Skeleton3D" index="2"]
+transform = Transform3D(0.010982034, 0.947309, 0.32013264, 3.7950358e-11, -0.32015198, 0.94736624, 0.9999397, -0.0104040075, -0.0035159201, 39.749165, 2.2204933, -0.21689907)
+
+[node name="Bone_002" parent="spider/Armature4/Skeleton3D" index="3"]
+transform = Transform3D(0.010982034, 0.9749766, -0.22203593, -8.0047635e-12, 0.22204933, 0.9750354, 0.9999397, -0.010707872, 0.0024385531, 29.999397, 0, -0.10982035)
+
+[node name="Bone_001" parent="spider/Armature4/Skeleton3D" index="4"]
+transform = Transform3D(0.010982035, 0.9999397, 0, 0, 0, 1, 0.9999397, -0.010982035, 0, 20, 0, 0)
+
+[node name="Skeleton3D" parent="spider/Armature1" index="0"]
+bones/2/rotation = Quaternion(0.110485025, -7.531379e-11, -2.7609226e-10, 0.9938778)
+bones/3/rotation = Quaternion(-0.26896748, -7.981327e-12, 1.9346486e-10, 0.96314925)
+bones/4/rotation = Quaternion(-0.4197367, -4.8067357e-16, -2.7187442e-16, 0.907646)
+bones/5/rotation = Quaternion(-0.3011781, 7.315675e-09, 9.309157e-09, 0.9535679)
+bones/6/position = Vector3(50.666676, -20, 1.4563794e-07)
+bones/6/rotation = Quaternion(-0.49999994, -0.5, 0.50000006, 0.5)
+
+[node name="Bone_005" parent="spider/Armature1/Skeleton3D" index="0"]
+transform = Transform3D(-1.3073513e-08, -0.22855139, 0.97353184, -1.9581808e-08, -0.97353184, -0.22855139, 1, -2.2051482e-08, 8.252032e-09, 52.959, -10.26198, -9.304323e-10)
+
+[node name="Bone_004" parent="spider/Armature1/Skeleton3D" index="1"]
+transform = Transform3D(1.1498627e-10, 0.37209615, 0.92819417, 8.495459e-11, -0.92819417, 0.37209615, 1, 3.6068426e-11, -1.3834087e-10, 49.238037, -0.9800389, -1.2913484e-09)
+
+[node name="Bone_003" parent="spider/Armature1/Skeleton3D" index="2"]
+transform = Transform3D(1.1498601e-10, 0.9482177, 0.31762108, 8.495352e-11, -0.31762108, 0.9482177, 1, -8.204872e-11, -1.1707642e-10, 39.75586, 2.196172, -4.7086557e-10)
+
+[node name="Bone_002" parent="spider/Armature1/Skeleton3D" index="3"]
+transform = Transform3D(-2.7225472e-10, 0.9755861, -0.2196172, 8.8697286e-11, 0.2196172, 0.9755861, 1, 2.461285e-10, -1.4632368e-10, 30, 0, -2.932154e-09)
+
+[node name="Skeleton3D" parent="spider/Armature2" index="0"]
+bones/1/rotation = Quaternion(0, 0, -0.005491111, 0.9999849)
+bones/2/rotation = Quaternion(0.1117237, 4.673501e-12, -4.665548e-11, 0.9937393)
+bones/3/rotation = Quaternion(-0.27145344, -2.7741878e-11, 1.7880565e-10, 0.9624516)
+bones/4/rotation = Quaternion(-0.4243059, -4.562833e-11, 6.1002293e-11, 0.90551895)
+bones/5/rotation = Quaternion(-0.30468795, 7.0094686e-09, 9.320482e-09, 0.95245224)
+bones/6/position = Vector3(50.33333, -20.00002, 0.33333048)
+bones/6/rotation = Quaternion(-0.50000006, -0.5, -0.4999999, 0.50000006)
+
+[node name="Bone_005" parent="spider/Armature2/Skeleton3D" index="0"]
+transform = Transform3D(-0.010982069, -0.24807331, 0.96867895, -1.9434983e-08, -0.9687373, -0.2480883, 0.9999397, -0.0027245414, 0.010638736, 52.82434, -10.309675, 0.3605005)
+
+[node name="Bone_004" parent="spider/Armature2/Skeleton3D" index="1"]
+transform = Transform3D(-0.010982056, 0.36020896, 0.9328069, -1.0513847e-12, -0.9328632, 0.36023065, 0.9999397, 0.003956074, 0.010244756, 49.22225, -0.98104334, 0.32093978)
+
+[node name="Bone_003" parent="spider/Armature2/Skeleton3D" index="2"]
+transform = Transform3D(-0.010982056, 0.9473088, 0.3201335, 1.7472145e-11, -0.32015282, 0.9473659, 0.9999397, 0.010404026, 0.0035159364, 39.749165, 2.2204847, 0.21689951)
+
+[node name="Bone_002" parent="spider/Armature2/Skeleton3D" index="3"]
+transform = Transform3D(-0.010982056, 0.9749768, -0.22203507, -1.971353e-11, 0.22204846, 0.9750356, 0.9999397, 0.010707896, -0.0024385487, 29.999397, 0, 0.10982056)
+
+[node name="Bone_001" parent="spider/Armature2/Skeleton3D" index="4"]
+transform = Transform3D(-0.010982056, 0.9999397, 0, 0, 0, 1, 0.9999397, 0.010982056, 0, 20, 0, 1.9895197e-13)
+
+[node name="Skeleton3D" parent="spider/Armature3" index="0"]
+bones/2/rotation = Quaternion(0.112832725, -7.596581e-11, -2.7591357e-10, 0.993614)
+bones/3/rotation = Quaternion(-0.2740656, -9.006126e-12, 1.9341974e-10, 0.961711)
+bones/4/rotation = Quaternion(-0.42894036, -6.048965e-17, 3.3592522e-18, 0.9033328)
+bones/5/rotation = Quaternion(-0.3082227, 7.246622e-09, 9.363011e-09, 0.9513142)
+bones/6/position = Vector3(50, -20, -4.371148e-08)
+bones/6/rotation = Quaternion(0.5, -0.5, -0.5, 0.5)
+
+[node name="Bone_005" parent="spider/Armature3/Skeleton3D" index="0"]
+transform = Transform3D(-1.358414e-08, -0.26825386, 0.9633484, -1.922776e-08, -0.9633484, -0.26825386, 1, -2.2167027e-08, 7.928338e-09, 52.685295, -10.365793, -8.715372e-10)
+
+[node name="Bone_004" parent="spider/Armature3/Skeleton3D" index="1"]
+transform = Transform3D(1.15001855e-10, 0.34765467, 0.9376227, 8.67835e-11, -0.9376227, 0.34765467, 1, 4.1389277e-11, -1.3799897e-10, 49.208748, -0.9895661, -1.2854877e-09)
+
+[node name="Bone_003" parent="spider/Armature3/Skeleton3D" index="2"]
+transform = Transform3D(1.15001765e-10, 0.9463372, 0.32318097, 8.6783414e-11, -0.32318097, 0.9463372, 1, -8.078362e-11, -1.1929274e-10, 39.745377, 2.2422435, -4.7762394e-10)
+
+[node name="Bone_002" parent="spider/Armature3/Skeleton3D" index="3"]
+transform = Transform3D(-2.722521e-10, 0.97453755, -0.22422436, 8.869722e-11, 0.22422436, 0.97453755, 1, 2.4543187e-10, -1.4748433e-10, 30, 0, -2.9319143e-09)
+
+[node name="Camera3D" type="Camera3D" parent="spider"]
+transform = Transform3D(-10, -4.3650587e-07, 7.574542e-07, 0, 8.664267, 4.9930453, -8.742278e-07, 4.9930453, -8.664267, 0, 51.07657, -43.40424)
+
+[node name="GridContainer" type="GridContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="StartWalking" type="Button" parent="GridContainer"]
+layout_mode = 2
+text = "Start walking"
+
+[node name="StopWalking" type="Button" parent="GridContainer"]
+layout_mode = 2
+text = "Stop walking"
+
+[editable path="spider"]
