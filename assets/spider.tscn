@@ -1,16 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://bdrgqja08vwol"]
+[gd_scene load_steps=5 format=3 uid="uid://bdrgqja08vwol"]
 
 [ext_resource type="Script" uid="uid://bco1kp8235f8a" path="res://script/spider.gd" id="1_h5k70"]
 [ext_resource type="PackedScene" uid="uid://bfxf731uerwcx" path="res://assets/blender/export/spider.glb" id="1_k3kcl"]
+[ext_resource type="PackedScene" uid="uid://ds720p4j7jytw" path="res://assets/direction_indicator.tscn" id="3_c6fg3"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_h5k70"]
-size = Vector3(5.329651, 1.8000001, 5.3303223)
+size = Vector3(1.5, 0.4, 1.5)
 
 [node name="Spider" type="CharacterBody3D"]
 script = ExtResource("1_h5k70")
 
 [node name="spider" parent="." instance=ExtResource("1_k3kcl")]
-transform = Transform3D(-2.1855695e-09, 0, -0.05, 0, 0.05, 0, 0.05, 0, -2.1855695e-09, 0, 0, 0)
+transform = Transform3D(-4.3711387e-10, 0, -0.01, 0, 0.01, 0, 0.01, 0, -4.3711387e-10, 0, 0, 0)
 
 [node name="Camera3D" type="Camera3D" parent="spider"]
 transform = Transform3D(-20, -8.730119e-07, 1.5149087e-06, 0, 17.328533, 9.986091, -1.7484558e-06, 9.986091, -17.328533, -1.7484551e-06, 51.07657, -83.404236)
@@ -27,8 +28,15 @@ grow_vertical = 2
 layout_mode = 2
 text = "Neu starten"
 
+[node name="HeadingIndicator" type="Label" parent="GridContainer"]
+layout_mode = 2
+text = "#..#"
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.003460884, 0.90000004, 0.010180473)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.011364579, 0.19999999, 0.02534151)
 shape = SubResource("BoxShape3D_h5k70")
+
+[node name="DirectionIndicator" parent="." instance=ExtResource("3_c6fg3")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.3, 0)
 
 [editable path="spider"]

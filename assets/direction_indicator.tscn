@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://ds720p4j7jytw"]
+
+[ext_resource type="PackedScene" uid="uid://log2vtmkpntj" path="res://assets/blender/export/direction_indicator.glb" id="1_b24tb"]
+
+[node name="DirectionIndicator" instance=ExtResource("1_b24tb")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)

@@ -3,20 +3,29 @@ class_name Spider
 extends CharacterBody3D
 
 @onready var spider_animator: AnimationPlayer = $spider/AnimationPlayer
+@onready var direction_indicator: Node3D = $DirectionIndicator
 
+# gui stuff
 @onready var buttonRestart: Button = $GridContainer/RestarLevel
+@onready var headingIndicator: Label = $GridContainer/HeadingIndicator
 
-const SPEED = 2.5
+const SPEED = 0.5
 
 const WALK_ANIMATION: String = "Animation"
 
+var heading: Vector3
+
 func _ready() -> void:	
 	print("spider is ready...")
+	print(direction_indicator.global_position)
 	print(spider_animator)	
 	connect_buttons()	
 	var anim : Animation = spider_animator.get_animation(WALK_ANIMATION)
 	# make walk animation run forever...
 	anim.loop_mode = (Animation.LOOP_LINEAR)
+	heading = get_global_transform().basis.x
+	
+	direction_indicator.rotation.y = 0.0
 	
 func _process(delta: float) -> void:
 	
@@ -33,8 +42,20 @@ func _process(delta: float) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
+		
+	rotate_player()
 
 	move_and_slide()
+	
+func rotate_player() -> void:
+	
+	if (Input.is_action_pressed("turn_left")):
+		direction_indicator.rotation.y += 0.025
+		headingIndicator.text = str(int(direction_indicator.rotation_degrees.y))
+		
+	if (Input.is_action_pressed("turn_right")):
+		direction_indicator.rotation.y -= 0.025
+		headingIndicator.text = str(int(direction_indicator.rotation_degrees.y))
 
 func connect_buttons() -> void:
 	buttonRestart.pressed.connect(restart_level)
