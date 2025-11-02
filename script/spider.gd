@@ -11,7 +11,7 @@ extends CharacterBody3D
 # audio
 @onready var clickAudio: AudioStreamPlayer = $ClickAudio
 
-const SPEED = 0.25
+const SPEED = 1
 const ROTATION_DIFF = 0.025
 
 const WALK_ANIMATION: String = "Animation"
@@ -27,6 +27,8 @@ func _ready() -> void:
 	anim.loop_mode = (Animation.LOOP_LINEAR)
 	
 	click()
+	
+	print(get_gravity())
 	
 func _process(delta: float) -> void:
 	

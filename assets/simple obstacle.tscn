@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://du18osx70v5ei"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_16qyv"]
+albedo_color = Color(0.21568628, 0.5254902, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_16qyv"]
+
+[node name="SimpleObstacle" type="CSGBox3D"]
+use_collision = true
+material = SubResource("StandardMaterial3D_16qyv")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_16qyv")
