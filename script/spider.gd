@@ -12,11 +12,13 @@ extends CharacterBody3D
 # audio
 @onready var clickAudio: AudioStreamPlayer = $ClickAudio
 
-const SPEED = 0.5
+const SPEED = 0.25
+const ROTATION_DIFF = 0.025
 
 const WALK_ANIMATION: String = "Animation"
 
 var heading: Vector3
+var body_rotation: float
 
 func _ready() -> void:	
 	print("spider is ready...")
@@ -55,14 +57,19 @@ func _process(delta: float) -> void:
 func rotate_player() -> void:
 	
 	if (Input.is_action_pressed("turn_left")):
-		direction_indicator.rotation.y += 0.025
-		headingIndicator.text = str(int(direction_indicator.rotation_degrees.y))
+		direction_indicator.rotation.y += ROTATION_DIFF
+		body_rotation += ROTATION_DIFF
+		# headingIndicator.text = str(int(direction_indicator.rotation_degrees.y))
+		headingIndicator.text = str(rad_to_deg(body_rotation))
 		
 	if (Input.is_action_pressed("turn_right")):
-		direction_indicator.rotation.y -= 0.025
-		headingIndicator.text = str(int(direction_indicator.rotation_degrees.y))
+		direction_indicator.rotation.y -= ROTATION_DIFF
+		body_rotation -= ROTATION_DIFF
+		# headingIndicator.text = str(int(direction_indicator.rotation_degrees.y))
+		headingIndicator.text = str(rad_to_deg(body_rotation))
 		
-	rotation.y = deg_to_rad(direction_indicator.rotation_degrees.y)
+	## rotation.y = deg_to_rad(direction_indicator.rotation_degrees.y)
+	rotation.y = body_rotation
 
 func connect_buttons() -> void:
 	buttonRestart.pressed.connect(restart_level)
