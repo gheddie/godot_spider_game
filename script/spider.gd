@@ -14,6 +14,8 @@ extends CharacterBody3D
 const SPEED = 1
 const ROTATION_DIFF = 0.025
 
+const FALL_GRAVITY = 0.5
+
 const WALK_ANIMATION: String = "Animation"
 
 var body_rotation: float
@@ -29,6 +31,11 @@ func _ready() -> void:
 	click()
 	
 	print(get_gravity())
+	
+func _physics_process(delta: float) -> void:
+	# Add the gravity.
+	if not is_on_floor():
+		velocity += get_gravity() * delta * FALL_GRAVITY	
 	
 func _process(delta: float) -> void:
 	
@@ -47,8 +54,14 @@ func _process(delta: float) -> void:
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 		
 	rotate_player()
+	
+	apply_gravity()
 
 	move_and_slide()
+	
+func apply_gravity() -> void:
+	
+	pass
 	
 func rotate_player() -> void:
 	
