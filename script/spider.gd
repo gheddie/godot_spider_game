@@ -3,7 +3,6 @@ class_name Spider
 extends CharacterBody3D
 
 @onready var spider_animator: AnimationPlayer = $spider/AnimationPlayer
-@onready var direction_indicator: Node3D = $DirectionIndicator
 
 # gui stuff
 @onready var buttonRestart: Button = $GridContainer/RestarLevel
@@ -17,20 +16,15 @@ const ROTATION_DIFF = 0.025
 
 const WALK_ANIMATION: String = "Animation"
 
-var heading: Vector3
 var body_rotation: float
 
 func _ready() -> void:	
 	print("spider is ready...")
-	print(direction_indicator.global_position)
 	print(spider_animator)	
 	connect_buttons()	
 	var anim : Animation = spider_animator.get_animation(WALK_ANIMATION)
 	# make walk animation run forever...
 	anim.loop_mode = (Animation.LOOP_LINEAR)
-	heading = get_global_transform().basis.x
-	
-	direction_indicator.rotation.y = 0.0
 	
 	click()
 	
@@ -57,18 +51,13 @@ func _process(delta: float) -> void:
 func rotate_player() -> void:
 	
 	if (Input.is_action_pressed("turn_left")):
-		direction_indicator.rotation.y += ROTATION_DIFF
 		body_rotation += ROTATION_DIFF
-		# headingIndicator.text = str(int(direction_indicator.rotation_degrees.y))
 		headingIndicator.text = str(rad_to_deg(body_rotation))
 		
 	if (Input.is_action_pressed("turn_right")):
-		direction_indicator.rotation.y -= ROTATION_DIFF
 		body_rotation -= ROTATION_DIFF
-		# headingIndicator.text = str(int(direction_indicator.rotation_degrees.y))
 		headingIndicator.text = str(rad_to_deg(body_rotation))
 		
-	## rotation.y = deg_to_rad(direction_indicator.rotation_degrees.y)
 	rotation.y = body_rotation
 
 func connect_buttons() -> void:

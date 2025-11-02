@@ -1,8 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://bdrgqja08vwol"]
+[gd_scene load_steps=5 format=3 uid="uid://bdrgqja08vwol"]
 
 [ext_resource type="Script" uid="uid://bco1kp8235f8a" path="res://script/spider.gd" id="1_h5k70"]
 [ext_resource type="PackedScene" uid="uid://bfxf731uerwcx" path="res://assets/blender/export/spider.glb" id="1_k3kcl"]
-[ext_resource type="PackedScene" uid="uid://ds720p4j7jytw" path="res://assets/direction_indicator.tscn" id="3_c6fg3"]
 [ext_resource type="AudioStream" uid="uid://bchb5r41qm6bt" path="res://audio/click.wav" id="4_25m37"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_h5k70"]
@@ -124,9 +123,6 @@ text = "#..#"
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.011364579, 0.19999999, 0.02534151)
 shape = SubResource("BoxShape3D_h5k70")
-
-[node name="DirectionIndicator" parent="." instance=ExtResource("3_c6fg3")]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.3, 0)
 
 [node name="ClickAudio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_25m37")
