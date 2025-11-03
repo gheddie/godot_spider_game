@@ -1,6 +1,6 @@
 class_name Spider
 
-extends CharacterBody3D
+extends RemovablePlayer
 
 @onready var spider_animator: AnimationPlayer = $spider/AnimationPlayer
 
@@ -44,9 +44,6 @@ func fall(delta: float) -> void:
 		apply_crash(gravity_factor.get_factor())
 		gravity_factor.reset()
 	velocity += get_gravity() * delta * gravity_factor.get_factor()
-	
-func apply_crash(crash_force: float) -> void:
-	print("landed with force: ".join([crash_force]))
 	
 func _process(delta: float) -> void:
 	boostIndicator.text = str(gravity_factor.get_factor())
@@ -102,3 +99,6 @@ func restart_level():
 	
 func click() -> void:
 	clickAudio.play()
+
+func get_collision_tolerance() -> float:
+	return 10.0
