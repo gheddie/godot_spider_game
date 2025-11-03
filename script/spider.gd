@@ -7,6 +7,7 @@ extends CharacterBody3D
 # gui stuff
 @onready var buttonRestart: Button = $GridContainer/RestarLevel
 @onready var headingIndicator: Label = $GridContainer/HeadingIndicator
+@onready var boostIndicator: Label = $GridContainer/BoostIndicator
 
 # audio
 @onready var clickAudio: AudioStreamPlayer = $ClickAudio
@@ -14,10 +15,10 @@ extends CharacterBody3D
 # booster
 @onready var booster: GPUParticles3D = $Booster
 
+@onready var gravity_factor: GravityFactor = GravityFactor.create()
+
 const SPEED = 1
 const ROTATION_DIFF = 0.025
-
-const FALL_GRAVITY = 0.5
 
 const WALK_ANIMATION: String = "Animation"
 
@@ -36,12 +37,13 @@ func _physics_process(delta: float) -> void:
 	fall(delta)
 		
 func fall(delta: float) -> void:
+	gravity_factor.on_falling()
 	# Add the gravity.
 	if not is_on_floor():
-		velocity += get_gravity() * delta * FALL_GRAVITY
+		velocity += get_gravity() * delta * gravity_factor.get_factor()
 	
 func _process(delta: float) -> void:
-	
+	boostIndicator.text = str(gravity_factor.get_factor())
 	if (Input.is_action_pressed("move_forward") or Input.is_action_pressed("move_backward")):
 		start_walking()
 	else:
@@ -62,9 +64,10 @@ func move_spider() -> void:
 	boost()
 	move_and_slide()
 	
-func boost() -> void:
+func boost() -> void:	
 	if Input.is_action_pressed("thrust"):
 		booster.emitting = true
+		gravity_factor.on_boost()
 	else:
 		booster.emitting = false
 	

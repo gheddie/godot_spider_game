@@ -121,10 +121,6 @@ text = "Neu starten"
 layout_mode = 2
 text = "#..#"
 
-[node name="BoostIndicator" type="Label" parent="GridContainer"]
-layout_mode = 2
-text = "#..#	"
-
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.011364579, 0.19999999, 0.02534151)
 shape = SubResource("BoxShape3D_h5k70")
