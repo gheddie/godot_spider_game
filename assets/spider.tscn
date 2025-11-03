@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://bdrgqja08vwol"]
+[gd_scene load_steps=7 format=3 uid="uid://bdrgqja08vwol"]
 
 [ext_resource type="Script" uid="uid://bco1kp8235f8a" path="res://script/spider.gd" id="1_h5k70"]
 [ext_resource type="PackedScene" uid="uid://bfxf731uerwcx" path="res://assets/blender/export/spider.glb" id="1_k3kcl"]
 [ext_resource type="AudioStream" uid="uid://bchb5r41qm6bt" path="res://audio/click.wav" id="4_25m37"]
 [ext_resource type="PackedScene" uid="uid://bimkbqroaw1jt" path="res://assets/booster_particles.tscn" id="4_xmw87"]
+[ext_resource type="AudioStream" uid="uid://dijeo40kq8wbg" path="res://audio/SFX - Main engine thrust.ogg" id="5_xmw87"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_h5k70"]
 size = Vector3(1.5, 0.4, 1.5)
@@ -103,8 +104,21 @@ transform = Transform3D(1.15001765e-10, 0.9463372, 0.32318097, 8.6783414e-11, -0
 transform = Transform3D(-2.722521e-10, 0.97453755, -0.22422436, 8.869722e-11, 0.22422436, 0.97453755, 1, 2.4543187e-10, -1.4748433e-10, 30, 0, -2.9319143e-09)
 
 [node name="Camera3D" type="Camera3D" parent="spider"]
-transform = Transform3D(-20, -8.730119e-07, 1.5149087e-06, 0, 17.328533, 9.986091, -1.7484558e-06, 9.986091, -17.328533, -1.7484551e-06, 51.07657, -83.404236)
+transform = Transform3D(-100, -6.196495e-06, 7.0047995e-06, -5.6138447e-06, 99.67691, 8.03207, -7.479875e-06, 8.03207, -99.67691, -1.7484506e-06, 40.744133, -83.40423)
 current = true
+
+[node name="DownwardSpot" type="SpotLight3D" parent="spider/Camera3D"]
+transform = Transform3D(-1, 1.3113414e-07, 4.3711385e-08, -2.7603164e-08, -0.49930453, 0.8664266, 1.354434e-07, 0.8664266, 0.49930453, -9.039887e-08, 0.6850066, -0.5678674)
+
+[node name="ForwardSpot1" type="SpotLight3D" parent="spider/Camera3D"]
+transform = Transform3D(-1, 6.556701e-08, 1.5727696e-07, -6.5440716e-08, -0.99999976, 0.0008028522, 1.5732954e-07, 0.0008028522, 0.99999976, -0.25000003, 0.05640614, -1.0603856)
+light_color = Color(0.8235294, 0.5921569, 0.11764706, 1)
+light_energy = 100.0
+
+[node name="ForwardSpot2" type="SpotLight3D" parent="spider/Camera3D"]
+transform = Transform3D(-1, 6.5567e-08, 1.5727696e-07, -6.544071e-08, -0.99999976, 0.0008028522, 1.5732954e-07, 0.0008028522, 0.99999976, 0.24999993, 0.05640617, -1.0603856)
+light_color = Color(0.8235294, 0.5921569, 0.11764706, 1)
+light_energy = 100.0
 
 [node name="GridContainer" type="GridContainer" parent="."]
 anchors_preset = 15
@@ -129,10 +143,15 @@ text = "#..#	"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.011364579, 0.19999999, 0.02534151)
 shape = SubResource("BoxShape3D_h5k70")
 
-[node name="ClickAudio" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_25m37")
-
 [node name="Booster" parent="." instance=ExtResource("4_xmw87")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+
+[node name="Audio" type="Node" parent="."]
+
+[node name="ClickAudio" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("4_25m37")
+
+[node name="BoostAudio" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("5_xmw87")
 
 [editable path="spider"]

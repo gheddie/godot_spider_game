@@ -10,7 +10,8 @@ extends RemovablePlayer
 @onready var boostIndicator: Label = $GridContainer/BoostIndicator
 
 # audio
-@onready var clickAudio: AudioStreamPlayer = $ClickAudio
+@onready var clickAudio: AudioStreamPlayer = $Audio/ClickAudio
+@onready var boostAudio: AudioStreamPlayer = $Audio/BoostAudio
 
 # booster
 @onready var booster: GPUParticles3D = $Booster
@@ -33,7 +34,7 @@ func _ready() -> void:
 	var anim : Animation = spider_animator.get_animation(WALK_ANIMATION)
 	# make walk animation run forever...
 	anim.loop_mode = (Animation.LOOP_LINEAR)
-	# click()
+	click()
 	
 func _physics_process(delta: float) -> void:
 	fall(delta)
@@ -110,6 +111,9 @@ func get_collision_tolerance() -> float:
 
 func fire_booster() -> void:
 	booster.emitting = true
+	if boostAudio.playing == false:		
+		boostAudio.play()
 
 func stop_firing_booster() -> void:
 	booster.emitting = false
+	boostAudio.stop()
