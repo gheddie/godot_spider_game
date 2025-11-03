@@ -29,3 +29,6 @@ func on_boost() -> void:
 	if gravity_factor <= MAX_GRAVITY_AMOUNT:
 		pass	
 	gravity_factor -= FALL_GRAVITY_DIV * 5
+
+func reset() -> void:
+	gravity_factor = 0.0

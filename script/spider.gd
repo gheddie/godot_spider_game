@@ -40,7 +40,13 @@ func fall(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
 		gravity_factor.on_falling()
+	else:
+		apply_crash(gravity_factor.get_factor())
+		gravity_factor.reset()
 	velocity += get_gravity() * delta * gravity_factor.get_factor()
+	
+func apply_crash(crash_force: float) -> void:
+	print("landed with force: ".join([crash_force]))
 	
 func _process(delta: float) -> void:
 	boostIndicator.text = str(gravity_factor.get_factor())
