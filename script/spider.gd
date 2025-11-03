@@ -25,7 +25,9 @@ const WALK_ANIMATION: String = "Animation"
 var body_rotation: float
 
 func _ready() -> void:	
-	print("spider is ready...")
+	
+	print("spider is ready...")	
+	
 	print(spider_animator)	
 	connect_buttons()	
 	var anim : Animation = spider_animator.get_animation(WALK_ANIMATION)
