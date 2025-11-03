@@ -11,6 +11,9 @@ extends CharacterBody3D
 # audio
 @onready var clickAudio: AudioStreamPlayer = $ClickAudio
 
+# booster
+@onready var booster: GPUParticles3D = $Booster
+
 const SPEED = 1
 const ROTATION_DIFF = 0.025
 
@@ -27,15 +30,15 @@ func _ready() -> void:
 	var anim : Animation = spider_animator.get_animation(WALK_ANIMATION)
 	# make walk animation run forever...
 	anim.loop_mode = (Animation.LOOP_LINEAR)
-	
-	click()
-	
-	print(get_gravity())
+	# click()
 	
 func _physics_process(delta: float) -> void:
+	fall(delta)
+		
+func fall(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
-		velocity += get_gravity() * delta * FALL_GRAVITY	
+		velocity += get_gravity() * delta * FALL_GRAVITY
 	
 func _process(delta: float) -> void:
 	
@@ -52,16 +55,18 @@ func _process(delta: float) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
-		
-	rotate_player()
+	move_spider()
 	
-	apply_gravity()
-
+func move_spider() -> void:
+	rotate_player()
+	boost()
 	move_and_slide()
 	
-func apply_gravity() -> void:
-	
-	pass
+func boost() -> void:
+	if Input.is_action_pressed("thrust"):
+		booster.emitting = true
+	else:
+		booster.emitting = false
 	
 func rotate_player() -> void:
 	
@@ -72,7 +77,6 @@ func rotate_player() -> void:
 	if (Input.is_action_pressed("turn_right")):
 		body_rotation -= ROTATION_DIFF
 		headingIndicator.text = str(rad_to_deg(body_rotation))
-		
 	rotation.y = body_rotation
 
 func connect_buttons() -> void:

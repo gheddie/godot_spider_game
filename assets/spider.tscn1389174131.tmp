@@ -1,9 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://bdrgqja08vwol"]
+[gd_scene load_steps=5 format=3 uid="uid://bdrgqja08vwol"]
 
 [ext_resource type="Script" uid="uid://bco1kp8235f8a" path="res://script/spider.gd" id="1_h5k70"]
 [ext_resource type="PackedScene" uid="uid://bfxf731uerwcx" path="res://assets/blender/export/spider.glb" id="1_k3kcl"]
 [ext_resource type="AudioStream" uid="uid://bchb5r41qm6bt" path="res://audio/click.wav" id="4_25m37"]
-[ext_resource type="PackedScene" uid="uid://bimkbqroaw1jt" path="res://assets/booster_particles.tscn" id="4_xmw87"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_h5k70"]
 size = Vector3(1.5, 0.4, 1.5)
@@ -127,8 +126,5 @@ shape = SubResource("BoxShape3D_h5k70")
 
 [node name="ClickAudio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_25m37")
-
-[node name="Booster" parent="." instance=ExtResource("4_xmw87")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 
 [editable path="spider"]

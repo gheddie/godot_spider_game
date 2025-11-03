@@ -209,6 +209,33 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.82572705, 6)
 [node name="Floorplate70" parent="Floor" instance=ExtResource("2_cojph")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, -0.82572705, 6)
 
+[node name="Floorplate38" parent="Floor" instance=ExtResource("2_cojph")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -5.825727, -3)
+
+[node name="Floorplate44" parent="Floor" instance=ExtResource("2_cojph")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, -5.825727, -3)
+
+[node name="Floorplate47" parent="Floor" instance=ExtResource("2_cojph")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, -5.825727, -6)
+
+[node name="Floorplate71" parent="Floor" instance=ExtResource("2_cojph")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.825727, -6)
+
+[node name="Floorplate55" parent="Floor" instance=ExtResource("2_cojph")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, -5.825727, -3)
+
+[node name="Floorplate58" parent="Floor" instance=ExtResource("2_cojph")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, -5.825727, 0)
+
+[node name="Floorplate72" parent="Floor" instance=ExtResource("2_cojph")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.825727, 0)
+
+[node name="Floorplate63" parent="Floor" instance=ExtResource("2_cojph")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, -0.82572705, -9)
+
+[node name="Floorplate73" parent="Floor" instance=ExtResource("2_cojph")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, -0.82572705, -9)
+
 [node name="Obstacles" type="Node" parent="."]
 
 [node name="SimpleObstacle1" parent="Obstacles" instance=ExtResource("3_p7lbm")]
