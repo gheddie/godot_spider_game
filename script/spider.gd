@@ -62,20 +62,23 @@ func _process(delta: float) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
-	move_spider()
+	move_spider(delta)
 	
-func move_spider() -> void:
+func move_spider(delta: float) -> void:
 	rotate_player()
-	boost()
+	boost(delta, Input.is_action_pressed("thrust"))
 	move_and_slide()
 	
-func boost() -> void:	
-	if Input.is_action_pressed("thrust"):
-		booster.emitting = true
-		gravity_factor.on_boost()
-	else:
-		booster.emitting = false
+func boost(delta: float, boosting: bool) -> void:
 	
+	var d : Vector3 = get_gravity()
+	if !boosting:
+		stop_firing_booster()
+		velocity += get_gravity() * delta * 0.1
+	else:
+		fire_booster()
+		velocity -= get_gravity() * delta * 0.1
+		
 func rotate_player() -> void:
 	
 	if (Input.is_action_pressed("turn_left")):
@@ -104,3 +107,9 @@ func click() -> void:
 
 func get_collision_tolerance() -> float:
 	return 10.0
+
+func fire_booster() -> void:
+	booster.emitting = true
+
+func stop_firing_booster() -> void:
+	booster.emitting = false
