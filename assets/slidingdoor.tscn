@@ -89,16 +89,6 @@ libraries = {
 &"": SubResource("AnimationLibrary_iq82u")
 }
 
-[node name="Spot1" type="SpotLight3D" parent="." index="7"]
-transform = Transform3D(0.9659258, -1.131334e-08, 0.25881904, -0.25881904, -4.222196e-08, 0.9659258, 0, -1, -4.371139e-08, 1, 0.7, 0)
-light_color = Color(1, 0.16078432, 1, 1)
-light_energy = 10.0
-
-[node name="Spot2" type="SpotLight3D" parent="." index="8"]
-transform = Transform3D(0.9659258, 1.131334e-08, -0.25881904, 0.25881904, -4.222196e-08, 0.9659258, 0, -1, -4.371139e-08, -1, 0.7, 0)
-light_color = Color(1, 0.16078432, 1, 1)
-light_energy = 10.0
-
-[node name="StateIndicator" type="CSGBox3D" parent="." index="9"]
+[node name="StateIndicator" type="CSGBox3D" parent="." index="7"]
 transform = Transform3D(0.3, 0, 0, 0, 0.099999964, 0, 0, 0, 1, 0, 0.8, 0)
 material_override = SubResource("StandardMaterial3D_iq82u")

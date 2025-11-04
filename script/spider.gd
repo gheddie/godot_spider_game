@@ -6,6 +6,10 @@ extends RemovablePlayer
 
 # gui stuff
 @onready var buttonRestart: Button = $GridContainer/RestarLevel
+
+@onready var buttonLightsOn: Button = $GridContainer/LightOn
+@onready var buttonLightsOff: Button = $GridContainer/LightOff
+
 @onready var headingIndicator: Label = $GridContainer/HeadingIndicator
 @onready var boostIndicator: Label = $GridContainer/BoostIndicator
 
@@ -18,10 +22,16 @@ extends RemovablePlayer
 
 @onready var gravity_factor: GravityFactor = GravityFactor.create()
 
+# spots
+@onready var spot1: SpotLight3D = $spider/Camera3D/ForwardSpot1
+@onready var spot2: SpotLight3D = $spider/Camera3D/ForwardSpot2
+
 const SPEED = 2
 const ROTATION_DIFF = 0.05
 
 const WALK_ANIMATION: String = "Animation"
+
+const SPOT_ENERGY: float = 100.0
 
 var body_rotation: float
 
@@ -93,6 +103,8 @@ func rotate_player() -> void:
 
 func connect_buttons() -> void:
 	buttonRestart.pressed.connect(restart_level)
+	buttonLightsOn.pressed.connect(lights_on)
+	buttonLightsOff.pressed.connect(lights_off)
 
 func start_walking():
 	spider_animator.play(WALK_ANIMATION)
@@ -118,3 +130,15 @@ func fire_booster() -> void:
 func stop_firing_booster() -> void:
 	booster.emitting = false
 	boostAudio.stop()
+
+func lights_on() -> void:
+	print("lights_on")
+	spot1.light_energy = SPOT_ENERGY
+	spot2.light_energy = SPOT_ENERGY
+	pass
+	
+func lights_off() -> void:
+	print("lights_off")
+	spot1.light_energy = 0.0
+	spot2.light_energy = 0.0
+	pass
