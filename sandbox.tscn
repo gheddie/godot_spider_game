@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://csal46ceqcauu"]
+[gd_scene load_steps=7 format=3 uid="uid://csal46ceqcauu"]
 
 [ext_resource type="PackedScene" uid="uid://bdrgqja08vwol" path="res://assets/spider.tscn" id="1_3h184"]
 [ext_resource type="PackedScene" uid="uid://ckfqcstar8mnf" path="res://assets/squared_plate.tscn" id="2_cojph"]
 [ext_resource type="PackedScene" uid="uid://22auwljf3jmr" path="res://assets/slidingdoor.tscn" id="3_p7lbm"]
+[ext_resource type="PackedScene" uid="uid://cd0hx867yysts" path="res://assets/jump_plate.tscn" id="4_rvmsc"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3h184"]
 albedo_color = Color(0, 0, 0, 1)
@@ -13,7 +14,7 @@ albedo_color = Color(0, 0, 0, 1)
 [node name="Sandbox" type="Node3D"]
 
 [node name="Spider" parent="." instance=ExtResource("1_3h184")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.33181, 4.4742727, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.96819, 1.2000004, 0)
 
 [node name="Floor" type="CSGBox3D" parent="."]
 material_override = SubResource("StandardMaterial3D_3h184")
@@ -84,3 +85,27 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.0055084, 3, 0)
 
 [node name="SquaredPlate4" parent="Traverse" instance=ExtResource("2_cojph")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.213168, 3, 0)
+
+[node name="Stair" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.3, 0, 0)
+
+[node name="JumpPlate1" parent="Stair" instance=ExtResource("4_rvmsc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.9, 0.9, 0)
+
+[node name="JumpPlate2" parent="Stair" instance=ExtResource("4_rvmsc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.9, 1.4000001, 0)
+
+[node name="JumpPlate3" parent="Stair" instance=ExtResource("4_rvmsc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9, 1.9, 0)
+
+[node name="JumpPlate4" parent="Stair" instance=ExtResource("4_rvmsc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1, 2.4, 0)
+
+[node name="JumpPlate5" parent="Stair" instance=ExtResource("4_rvmsc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.1000009, 2.9, 0)
+
+[node name="JumpPlate6" parent="Stair" instance=ExtResource("4_rvmsc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.1000004, 3.4, 0)
+
+[node name="JumpPlate7" parent="Stair" instance=ExtResource("4_rvmsc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.100001, 3.9, 0)

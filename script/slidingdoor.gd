@@ -2,7 +2,7 @@ class_name SlidingDoor
 
 extends Node3D
 
-const AFFECT_OPEN_DISTINCE = 1.5
+const AFFECT_OPEN_DISTINCE = 2.5
 
 var openend: bool = false
 
