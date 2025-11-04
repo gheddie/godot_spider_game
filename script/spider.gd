@@ -26,6 +26,8 @@ extends RemovablePlayer
 @onready var spot1: SpotLight3D = $spider/Camera3D/ForwardSpot1
 @onready var spot2: SpotLight3D = $spider/Camera3D/ForwardSpot2
 
+var targeted_object: Object
+	
 const SPEED = 2
 const ROTATION_DIFF = 0.05
 
@@ -34,6 +36,9 @@ const WALK_ANIMATION: String = "Animation"
 const SPOT_ENERGY: float = 100.0
 
 var body_rotation: float
+
+# raycast to shoot
+@onready var raycast: RayCast3D = $spider/ForwardPointer
 
 func _ready() -> void:	
 	
@@ -58,7 +63,8 @@ func fall(delta: float) -> void:
 		gravity_factor.reset()
 	velocity += get_gravity() * delta * gravity_factor.get_factor()
 	
-func _process(delta: float) -> void:
+func _process(delta: float) -> void:	
+	check_targeting()
 	boostIndicator.text = str(gravity_factor.get_factor())
 	if (Input.is_action_pressed("move_forward") or Input.is_action_pressed("move_backward")):
 		start_walking()
@@ -74,6 +80,13 @@ func _process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 	move_spider(delta)
+	
+func check_targeting() -> void:
+	var collider = raycast.get_collider()
+	if collider != null:
+		if !collider == targeted_object:
+			targeted_object = collider
+			print(targeted_object)
 	
 func move_spider(delta: float) -> void:
 	rotate_player()

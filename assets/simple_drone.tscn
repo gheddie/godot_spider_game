@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://ckr8t7ylhitg"]
+
+[ext_resource type="PackedScene" uid="uid://b7kq88ersfe6c" path="res://assets/blender/export/simple_drone.glb" id="1_3o838"]
+[ext_resource type="Script" uid="uid://cqraxy4x2ncqa" path="res://script/simple_drone.gd" id="1_olobk"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3o838"]
+size = Vector3(0.4, 0.7, 0.4)
+
+[node name="SimpleDrone" type="CharacterBody3D"]
+script = ExtResource("1_olobk")
+
+[node name="simple_drone" parent="." instance=ExtResource("1_3o838")]
+transform = Transform3D(0.125, 0, 0, 0, 0.125, 0, 0, 0, 0.125, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.4703484e-08, 0.35, -4.4703484e-08)
+shape = SubResource("BoxShape3D_3o838")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 1.9000001, 0)
+light_energy = 5.0
