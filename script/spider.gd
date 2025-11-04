@@ -18,8 +18,8 @@ extends RemovablePlayer
 
 @onready var gravity_factor: GravityFactor = GravityFactor.create()
 
-const SPEED = 1
-const ROTATION_DIFF = 0.025
+const SPEED = 2
+const ROTATION_DIFF = 0.05
 
 const WALK_ANIMATION: String = "Animation"
 
@@ -102,6 +102,7 @@ func stop_walking():
 	
 func restart_level():
 	print("restart_level")
+	get_tree().reload_current_scene()
 	
 func click() -> void:
 	clickAudio.play()
