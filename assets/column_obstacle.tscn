@@ -1,14 +1,45 @@
-[gd_scene load_steps=3 format=3 uid="uid://dxjxtb2fl0cea"]
+[gd_scene load_steps=4 format=3 uid="uid://dxjxtb2fl0cea"]
 
 [ext_resource type="PackedScene" uid="uid://cxkewqvn2b5ie" path="res://assets/blender/export/column_obstacle.glb" id="1_hx7uc"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hx7uc"]
-size = Vector3(2, 2.1000001, 2)
+size = Vector3(2, 0.4, 2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fovqv"]
+size = Vector3(0.8, 1.9, 0.8)
 
 [node name="ColumnObstacle" type="StaticBody3D"]
 
 [node name="column_obstacle" parent="." instance=ExtResource("1_hx7uc")]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9500001, 0)
+[node name="Collider1" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.100000024, 0)
 shape = SubResource("BoxShape3D_hx7uc")
+
+[node name="Collider2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.9802322e-08, 1.05, 2.9802322e-08)
+shape = SubResource("BoxShape3D_fovqv")
+
+[node name="Spot1" type="SpotLight3D" parent="."]
+transform = Transform3D(-4.371139e-08, 1, 0, 4.371139e-08, 1.9106855e-15, 1, 1, 4.371139e-08, -4.371139e-08, 0.70000005, 3.5, -0.7)
+light_energy = 5.0
+spot_range = 4.5
+spot_angle = 36.5625
+
+[node name="Spot2" type="SpotLight3D" parent="."]
+transform = Transform3D(-4.371139e-08, 1, 0, 4.371139e-08, 1.9106855e-15, 1, 1, 4.371139e-08, -4.371139e-08, -0.6999999, 4.55, -0.6999999)
+light_energy = 5.0
+spot_range = 4.5
+spot_angle = 36.5625
+
+[node name="Spot3" type="SpotLight3D" parent="."]
+transform = Transform3D(-4.371139e-08, 1, 0, 4.371139e-08, 1.9106855e-15, 1, 1, 4.371139e-08, -4.371139e-08, 0.70000005, 3.5, 0.8)
+light_energy = 5.0
+spot_range = 4.5
+spot_angle = 36.5625
+
+[node name="Spot4" type="SpotLight3D" parent="."]
+transform = Transform3D(-4.371139e-08, 1, 0, 4.371139e-08, 1.9106855e-15, 1, 1, 4.371139e-08, -4.371139e-08, -0.6999999, 4.55, 0.8000001)
+light_energy = 5.0
+spot_range = 4.5
+spot_angle = 36.5625
