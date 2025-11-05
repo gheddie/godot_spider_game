@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dxjxtb2fl0cea"]
+
+[ext_resource type="PackedScene" uid="uid://cxkewqvn2b5ie" path="res://assets/blender/export/column_obstacle.glb" id="1_hx7uc"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hx7uc"]
+size = Vector3(2, 2.1000001, 2)
+
+[node name="ColumnObstacle" type="StaticBody3D"]
+
+[node name="column_obstacle" parent="." instance=ExtResource("1_hx7uc")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9500001, 0)
+shape = SubResource("BoxShape3D_hx7uc")

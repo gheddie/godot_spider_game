@@ -1,4 +1,4 @@
-extends CharacterBody3D
+extends RemovablePlayer
 
 @onready var path_finder: PathFinder = PathFinder.new(self)
 
@@ -6,9 +6,7 @@ const SPEED = 1.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	
-	print(global_position)
-	print(global_basis)
+	GameSingleton.get_instance().register_player(self)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -32,3 +30,6 @@ func look_at_target(direction: Vector3) -> void:
 	# do not look up or down
 	adjusted_direction.y = 0
 	look_at(global_position + adjusted_direction, Vector3.UP, true)
+
+func get_collision_tolerance() -> float:
+	return 10.0
