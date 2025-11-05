@@ -4,15 +4,17 @@ extends Node
 
 static var instance: GameSingleton = GameSingleton.new()
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass
+var enemies = []
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+var navigation_points = []
+
+var spider: Spider
+
+var rng: RandomNumberGenerator = RandomNumberGenerator.new()
 
 static func get_instance() -> GameSingleton:
+	instance.rng = RandomNumberGenerator.new()
+	# instance.init_spawn_timer()
 	return instance
 
 func register_player(player: RemovablePlayer) -> void:
@@ -21,3 +23,18 @@ func register_player(player: RemovablePlayer) -> void:
 func register_navigation_point(point: JumpPlate) -> void:
 	StaticPrinter.print("registered navigation point...", self)
 	StaticPrinter.print(point.describe(), self)
+	navigation_points.insert(0, point)
+
+func on_spawn_timout() -> void:
+	StaticPrinter.print("on_spawn_timout", self)	
+	
+func spawn_enemy() -> void:
+	StaticPrinter.print("spawning...", self)
+	var nav_point : JumpPlate = get_random_navigation_point()
+	nav_point.spawn_enemy()		
+
+func get_random_navigation_point() -> JumpPlate:
+	if navigation_points.is_empty():
+		return null
+	var index = rng.randi_range(0, navigation_points.size()-1)
+	return navigation_points.get(index)

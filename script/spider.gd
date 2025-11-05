@@ -6,9 +6,9 @@ extends RemovablePlayer
 
 # gui stuff
 @onready var buttonRestart: Button = $GridContainer/RestarLevel
-
 @onready var buttonLightsOn: Button = $GridContainer/LightOn
 @onready var buttonLightsOff: Button = $GridContainer/LightOff
+@onready var buttonSpawn: Button = $GridContainer/Spawn
 
 @onready var headingIndicator: Label = $GridContainer/HeadingIndicator
 @onready var boostIndicator: Label = $GridContainer/BoostIndicator
@@ -44,11 +44,14 @@ func _ready() -> void:
 	
 	print("spider is ready...")	
 	
+	GameSingleton.instance.spider = self
+	
 	print(spider_animator)	
 	connect_buttons()	
 	var anim : Animation = spider_animator.get_animation(WALK_ANIMATION)
 	# make walk animation run forever...
 	anim.loop_mode = (Animation.LOOP_LINEAR)
+	
 	click()
 	
 func _physics_process(delta: float) -> void:
@@ -118,6 +121,7 @@ func connect_buttons() -> void:
 	buttonRestart.pressed.connect(restart_level)
 	buttonLightsOn.pressed.connect(lights_on)
 	buttonLightsOff.pressed.connect(lights_off)
+	buttonSpawn.pressed.connect(spawn_enemy)
 
 func start_walking():
 	spider_animator.play(WALK_ANIMATION)
@@ -155,3 +159,7 @@ func lights_off() -> void:
 	spot1.light_energy = 0.0
 	spot2.light_energy = 0.0
 	pass
+
+# for testint
+func spawn_enemy() -> void:
+	GameSingleton.get_instance().spawn_enemy()

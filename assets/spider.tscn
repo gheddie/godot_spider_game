@@ -58,6 +58,10 @@ text = "Light on"
 layout_mode = 2
 text = "Light off"
 
+[node name="Spawn" type="Button" parent="GridContainer"]
+layout_mode = 2
+text = "Spawn"
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.011364579, 0.19999999, 0.02534151)
 shape = SubResource("BoxShape3D_h5k70")

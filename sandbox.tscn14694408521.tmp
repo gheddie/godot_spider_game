@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://csal46ceqcauu"]
+[gd_scene load_steps=9 format=3 uid="uid://csal46ceqcauu"]
 
 [ext_resource type="PackedScene" uid="uid://bdrgqja08vwol" path="res://assets/spider.tscn" id="1_3h184"]
 [ext_resource type="Script" uid="uid://bq51c7osmo3kx" path="res://script/sandbox.gd" id="1_rjrbw"]
 [ext_resource type="PackedScene" uid="uid://ckfqcstar8mnf" path="res://assets/squared_plate.tscn" id="2_cojph"]
 [ext_resource type="PackedScene" uid="uid://22auwljf3jmr" path="res://assets/slidingdoor.tscn" id="3_p7lbm"]
 [ext_resource type="PackedScene" uid="uid://cd0hx867yysts" path="res://assets/jump_plate.tscn" id="4_rvmsc"]
+[ext_resource type="PackedScene" uid="uid://ckr8t7ylhitg" path="res://assets/simple_drone.tscn" id="7_0fpt2"]
 [ext_resource type="PackedScene" uid="uid://dxjxtb2fl0cea" path="res://assets/column_obstacle.tscn" id="7_44b12"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_ypj6x"]
@@ -288,7 +289,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.2, -2.9, 6)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.2, -2.9, 4)
 
 [node name="Traverse" type="Node3D" parent="NavigationRegion3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.038867, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.838867, 0)
 
 [node name="doors" type="Node3D" parent="NavigationRegion3D/Traverse"]
 
@@ -315,3 +316,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.0055084, 3, 0)
 
 [node name="SquaredPlate4" parent="NavigationRegion3D/Traverse" instance=ExtResource("2_cojph")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.213168, 3, 0)
+
+[node name="SimpleDrone" parent="." instance=ExtResource("7_0fpt2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.8000002, 0)
