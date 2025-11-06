@@ -7,7 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://dijeo40kq8wbg" path="res://audio/SFX - Main engine thrust.ogg" id="5_xmw87"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_h5k70"]
-size = Vector3(1.5, 0.4, 1.5)
+size = Vector3(1.1, 0.25, 1.5)
 
 [node name="Spider" type="CharacterBody3D"]
 script = ExtResource("1_h5k70")
@@ -26,10 +26,6 @@ light_energy = 100.0
 [node name="ForwardSpot2" type="SpotLight3D" parent="spider/Camera3D"]
 transform = Transform3D(-1, 6.5567e-08, 1.5727696e-07, -6.544071e-08, -0.99999976, 0.0008028522, 1.5732954e-07, 0.0008028522, 0.99999976, 0.24999993, 0.05640617, -1.0603856)
 light_energy = 100.0
-
-[node name="ForwardPointer" type="RayCast3D" parent="spider"]
-transform = Transform3D(3.821371e-14, -8.742278e-07, 20, -20, -8.742278e-07, 0, 8.742278e-07, -20, -8.742278e-07, 0, 0, 0)
-target_position = Vector3(0, -100, 0)
 
 [node name="GridContainer" type="GridContainer" parent="."]
 anchors_preset = 15
@@ -63,7 +59,7 @@ layout_mode = 2
 text = "Spawn"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.011364579, 0.19999999, 0.02534151)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.01136452, 0.124999985, 0.02534151)
 shape = SubResource("BoxShape3D_h5k70")
 
 [node name="Booster" parent="." instance=ExtResource("4_xmw87")]
@@ -76,5 +72,9 @@ stream = ExtResource("4_25m37")
 
 [node name="BoostAudio" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource("5_xmw87")
+
+[node name="ShootingRaycast" type="RayCast3D" parent="."]
+transform = Transform3D(-8.742278e-09, 0.19999999, 8.881784e-16, -0.19999999, -8.742278e-09, 0, 0, -8.881784e-16, 0.19999999, -0.109999985, 0.2814843, 0)
+target_position = Vector3(0, -100, 0)
 
 [editable path="spider"]

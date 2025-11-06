@@ -38,7 +38,11 @@ const SPOT_ENERGY: float = 100.0
 var body_rotation: float
 
 # raycast to shoot
-@onready var raycast: RayCast3D = $spider/ForwardPointer
+@onready var shootingRaycast: RayCast3D = $ShootingRaycast
+
+@onready var rocket_scene: PackedScene = preload("res://assets/rocket.tscn")
+
+@onready var rocket_spawner: MeshInstance3D = $spider/RocketSpawner
 
 func _ready() -> void:	
 	
@@ -66,7 +70,7 @@ func fall(delta: float) -> void:
 		gravity_factor.reset()
 	velocity += get_gravity() * delta * gravity_factor.get_factor()
 	
-func _process(delta: float) -> void:	
+func _process(delta: float) -> void:
 	check_targeting()
 	boostIndicator.text = str(gravity_factor.get_factor())
 	if (Input.is_action_pressed("move_forward") or Input.is_action_pressed("move_backward")):
@@ -84,8 +88,21 @@ func _process(delta: float) -> void:
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 	move_spider(delta)
 	
+	if Input.is_action_just_pressed("fire"):
+		fire_weapon()
+		
+# see https://www.youtube.com/watch?v=6bbPHsB9TtI		
+func fire_weapon() -> void:
+	StaticPrinter.print("fire_weapon", self)
+	var rocket = rocket_scene.instantiate()
+	rocket.position = shootingRaycast.global_position	
+	rocket.rotation = rotation
+	
+	get_parent().add_child(rocket)		
+	pass
+	
 func check_targeting() -> void:
-	var collider = raycast.get_collider()
+	var collider = shootingRaycast.get_collider()
 	if collider != null:
 		if !collider == targeted_object:
 			targeted_object = collider

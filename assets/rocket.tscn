@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://bcmcjs10u3r3q"]
+
+[ext_resource type="Script" uid="uid://jmca87udqew4" path="res://script/rocket.gd" id="1_7ntmb"]
+[ext_resource type="PackedScene" uid="uid://dtldlkc3wv070" path="res://assets/blender/export/rocket.glb" id="1_62bqn"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_62bqn"]
+size = Vector3(0.111026004, 0.06, 0.05253906)
+
+[node name="Rocket" type="CharacterBody3D"]
+script = ExtResource("1_7ntmb")
+
+[node name="rocket" parent="." instance=ExtResource("1_62bqn")]
+transform = Transform3D(-4.3711387e-10, 0, -0.01, 0, 0.01, 0, 0.01, 0, -4.3711387e-10, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.019630408, 7.450581e-09, -0.00044918247)
+shape = SubResource("BoxShape3D_62bqn")
+
+[node name="Shooter" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.08503789, 0, 0)
+target_position = Vector3(-1, 0, 0)
