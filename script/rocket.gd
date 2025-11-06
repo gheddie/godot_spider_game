@@ -4,7 +4,7 @@ extends CharacterBody3D
 
 @onready var shooter: RayCast3D =$Shooter
 
-const SPEED = 1.0
+const SPEED = 25.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:	

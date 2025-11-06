@@ -51,3 +51,8 @@ func look_at_target(direction: Vector3) -> void:
 
 func get_collision_tolerance() -> float:
 	return 10.0
+
+
+func on_body_entered(body: Node3D) -> void:
+	if body is Rocket:
+		body.explode("Rocket ey")
