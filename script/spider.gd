@@ -88,7 +88,7 @@ func _process(delta: float) -> void:
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 	move_spider(delta)
 	
-	if Input.is_action_just_pressed("fire"):
+	if Input.is_action_pressed("fire"):
 		fire_weapon()
 		
 # see https://www.youtube.com/watch?v=6bbPHsB9TtI		

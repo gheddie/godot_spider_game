@@ -11,7 +11,7 @@ var spider: Spider
 var provoked := false
 var aggro_range := 12.0
 
-var life_points: int = 20
+var life_points: int = 10
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -58,7 +58,7 @@ func get_collision_tolerance() -> float:
 func on_body_entered(body: Node3D) -> void:
 	if body is Rocket:
 		body.explode("Rocket ey")
-		life_points -= 5
+		life_points -= 1
 		print(life_points)
 		if life_points <= 0:
 			print("AAAAAAAAARGH....")
