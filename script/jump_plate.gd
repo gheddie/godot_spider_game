@@ -23,5 +23,4 @@ func describe() -> String:
 
 func spawn_enemy() -> void:
 	var tmp = enemy_scene.instantiate()
-	# tmp.global_position.y = tmp.global_position.y + 100.0
 	add_child(tmp)

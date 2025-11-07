@@ -2,7 +2,7 @@ class_name Rocket
 
 extends CharacterBody3D
 
-@onready var shooter: RayCast3D =$Shooter
+@onready var shooter: RayCast3D = $Shooter
 
 const SPEED = 25.0
 
@@ -20,7 +20,6 @@ func _process(delta: float) -> void:
 	
 func check_self_destruct() -> void:
 	var distance = global_position.distance_to(GameSingleton.get_instance().spider.global_position)
-	print(str("distaaaaaaaaaance:", str(distance)))
 	if (distance >= SELF_DESCTRUCT_DISTANCE):
 		explode("SELF_DESCTRUCT_DISTANCE")
 	pass

@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://ckr8t7ylhitg"]
+[gd_scene load_steps=6 format=3 uid="uid://ckr8t7ylhitg"]
 
 [ext_resource type="PackedScene" uid="uid://b7kq88ersfe6c" path="res://assets/blender/export/simple_drone.glb" id="1_3o838"]
 [ext_resource type="Script" uid="uid://cqraxy4x2ncqa" path="res://script/simple_drone.gd" id="1_olobk"]
+[ext_resource type="Script" uid="uid://4twxib3gkjpl" path="res://script/progress_bar.gd" id="3_t5xhb"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3o838"]
 size = Vector3(0.3802124, 0.6428467, 0.3734375)
@@ -31,5 +32,12 @@ light_energy = 5.0
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ColliderArea"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.938894e-18, 0.31137085, 0.0020751953)
 shape = SubResource("BoxShape3D_olobk")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+
+[node name="ProgressBar" type="ProgressBar" parent="Sprite3D"]
+offset_right = 399.0
+offset_bottom = 27.0
+script = ExtResource("3_t5xhb")
 
 [connection signal="body_entered" from="ColliderArea" to="." method="on_body_entered"]

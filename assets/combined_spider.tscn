@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://btiytofg2r3gl"]
+
+[ext_resource type="Script" uid="uid://bncvxk4d25huu" path="res://script/combined_spider.gd" id="1_117qw"]
+[ext_resource type="PackedScene" uid="uid://cdsg2h2g1kfrn" path="res://assets/blender/export/spider_leg.glb" id="1_in8r8"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_in8r8"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_in8r8"]
+size = Vector3(15, 15, 15)
+
+[node name="CombinedSpider" type="CharacterBody3D"]
+script = ExtResource("1_117qw")
+
+[node name="Legs" type="Node" parent="."]
+
+[node name="Leg1" parent="Legs" instance=ExtResource("1_in8r8")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 3, 0, 0)
+
+[node name="Leg2" parent="Legs" instance=ExtResource("1_in8r8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3)
+
+[node name="Leg3" parent="Legs" instance=ExtResource("1_in8r8")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0, 3)
+
+[node name="Leg4" parent="Legs" instance=ExtResource("1_in8r8")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -3, 0, 0)
+
+[node name="Collider" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_in8r8")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 20, 0)
+mesh = SubResource("BoxMesh_in8r8")

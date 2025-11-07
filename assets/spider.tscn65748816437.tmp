@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bdrgqja08vwol"]
+[gd_scene load_steps=9 format=3 uid="uid://bdrgqja08vwol"]
 
 [ext_resource type="Script" uid="uid://bco1kp8235f8a" path="res://script/spider.gd" id="1_h5k70"]
 [ext_resource type="PackedScene" uid="uid://bfxf731uerwcx" path="res://assets/blender/export/spider.glb" id="1_k3kcl"]
@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://bimkbqroaw1jt" path="res://assets/booster_particles.tscn" id="4_xmw87"]
 [ext_resource type="AudioStream" uid="uid://dijeo40kq8wbg" path="res://audio/SFX - Main engine thrust.ogg" id="5_xmw87"]
 [ext_resource type="AudioStream" uid="uid://cjyc68utx3epm" path="res://audio/gunfire.mp3" id="6_rleia"]
-[ext_resource type="Script" uid="uid://gt4b1u3t11k1" path="res://script/cross_hair.gd" id="7_6pbb4"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_h5k70"]
 size = Vector3(1.1, 0.25, 1.5)
@@ -29,13 +28,11 @@ current = true
 
 [node name="ForwardSpot1" type="SpotLight3D" parent="spider/Camera3D"]
 transform = Transform3D(-1, 6.556701e-08, 1.5727696e-07, -6.5440716e-08, -0.99999976, 0.0008028522, 1.5732954e-07, 0.0008028522, 0.99999976, -0.25000003, 0.05640614, -1.0603856)
+light_energy = 100.0
 
 [node name="ForwardSpot2" type="SpotLight3D" parent="spider/Camera3D"]
 transform = Transform3D(-1, 6.5567e-08, 1.5727696e-07, -6.544071e-08, -0.99999976, 0.0008028522, 1.5732954e-07, 0.0008028522, 0.99999976, 0.24999993, 0.05640617, -1.0603856)
-light_energy = 10.0
-
-[node name="DownwardSpot" type="SpotLight3D" parent="spider/Camera3D"]
-transform = Transform3D(-1, 1.1356541e-07, -2.1855652e-08, -2.1764471e-08, 0.00080288947, 0.9999997, 1.1358293e-07, 0.9999997, -0.00080288947, -1.0956684e-07, 0.5387266, -0.82087135)
+light_energy = 100.0
 
 [node name="BaseCollider" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.01136452, 0.124999985, 0.02534151)
@@ -74,16 +71,5 @@ shape = SubResource("BoxShape3D_rleia")
 [node name="TopCollider4" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.27500004, 0.3, 0.47499996)
 shape = SubResource("BoxShape3D_rleia")
-
-[node name="CenterContainer" type="CenterContainer" parent="."]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="CrossHair" type="Control" parent="CenterContainer"]
-layout_mode = 2
-script = ExtResource("7_6pbb4")
 
 [editable path="spider"]

@@ -4,18 +4,10 @@ extends RemovablePlayer
 
 @onready var spider_animator: AnimationPlayer = $spider/AnimationPlayer
 
-# gui stuff
-@onready var buttonRestart: Button = $GridContainer/RestarLevel
-@onready var buttonLightsOn: Button = $GridContainer/LightOn
-@onready var buttonLightsOff: Button = $GridContainer/LightOff
-@onready var buttonSpawn: Button = $GridContainer/Spawn
-
-@onready var headingIndicator: Label = $GridContainer/HeadingIndicator
-@onready var boostIndicator: Label = $GridContainer/BoostIndicator
-
 # audio
 @onready var clickAudio: AudioStreamPlayer = $Audio/ClickAudio
 @onready var boostAudio: AudioStreamPlayer = $Audio/BoostAudio
+@onready var fireGunAudio: AudioStreamPlayer = $Audio/FireGunAudio
 
 # booster
 @onready var booster: GPUParticles3D = $Booster
@@ -51,12 +43,12 @@ func _ready() -> void:
 	GameSingleton.instance.spider = self
 	
 	print(spider_animator)	
-	connect_buttons()	
 	var anim : Animation = spider_animator.get_animation(WALK_ANIMATION)
 	# make walk animation run forever...
 	anim.loop_mode = (Animation.LOOP_LINEAR)
 	
 	click()
+	lights_on()
 	
 func _physics_process(delta: float) -> void:
 	fall(delta)
@@ -72,7 +64,6 @@ func fall(delta: float) -> void:
 	
 func _process(delta: float) -> void:
 	check_targeting()
-	boostIndicator.text = str(gravity_factor.get_factor())
 	if (Input.is_action_pressed("move_forward") or Input.is_action_pressed("move_backward")):
 		start_walking()
 	else:
@@ -88,7 +79,7 @@ func _process(delta: float) -> void:
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 	move_spider(delta)
 	
-	if Input.is_action_pressed("fire"):
+	if Input.is_action_just_pressed("fire"):
 		fire_weapon()
 		
 # see https://www.youtube.com/watch?v=6bbPHsB9TtI		
@@ -99,7 +90,9 @@ func fire_weapon() -> void:
 	rocket.rotation = rotation
 	
 	get_parent().add_child(rocket)		
-	pass
+	if fireGunAudio.playing == false:		
+		fireGunAudio.stop()
+		fireGunAudio.play()
 	
 func check_targeting() -> void:
 	var collider = shootingRaycast.get_collider()
@@ -115,7 +108,6 @@ func move_spider(delta: float) -> void:
 	
 func boost(delta: float, boosting: bool) -> void:
 	
-	var d : Vector3 = get_gravity()
 	if !boosting:
 		stop_firing_booster()
 		velocity += get_gravity() * delta * 0.1
@@ -124,31 +116,17 @@ func boost(delta: float, boosting: bool) -> void:
 		velocity -= get_gravity() * delta * 0.1
 		
 func rotate_player() -> void:
-	
 	if (Input.is_action_pressed("turn_left")):
 		body_rotation += ROTATION_DIFF
-		headingIndicator.text = str(rad_to_deg(body_rotation))
-		
 	if (Input.is_action_pressed("turn_right")):
 		body_rotation -= ROTATION_DIFF
-		headingIndicator.text = str(rad_to_deg(body_rotation))
 	rotation.y = body_rotation
-
-func connect_buttons() -> void:
-	buttonRestart.pressed.connect(restart_level)
-	buttonLightsOn.pressed.connect(lights_on)
-	buttonLightsOff.pressed.connect(lights_off)
-	buttonSpawn.pressed.connect(spawn_enemy)
 
 func start_walking():
 	spider_animator.play(WALK_ANIMATION)
 	
 func stop_walking():
 	spider_animator.stop()
-	
-func restart_level():
-	print("restart_level")
-	get_tree().reload_current_scene()
 	
 func click() -> void:
 	clickAudio.play()

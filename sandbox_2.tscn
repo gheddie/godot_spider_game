@@ -1,0 +1,337 @@
+[gd_scene load_steps=8 format=3 uid="uid://bs3814cpu47h"]
+
+[ext_resource type="Script" uid="uid://bq51c7osmo3kx" path="res://script/sandbox.gd" id="1_erm63"]
+[ext_resource type="PackedScene" uid="uid://bdrgqja08vwol" path="res://assets/spider.tscn" id="2_23yaj"]
+[ext_resource type="PackedScene" uid="uid://cd0hx867yysts" path="res://assets/jump_plate.tscn" id="3_tu14p"]
+[ext_resource type="PackedScene" uid="uid://dxjxtb2fl0cea" path="res://assets/column_obstacle.tscn" id="4_urhec"]
+[ext_resource type="PackedScene" uid="uid://22auwljf3jmr" path="res://assets/slidingdoor.tscn" id="5_3iinl"]
+[ext_resource type="PackedScene" uid="uid://ckfqcstar8mnf" path="res://assets/squared_plate.tscn" id="6_uwdjo"]
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_ypj6x"]
+vertices = PackedVector3Array(5.7999997, -2.9342256, 0, 11.299999, -2.6842256, 0, 11.299999, -2.6842256, -0.75, 12.299999, -2.6842256, -1, 12.299999, -2.9342256, -6.5, 5.5499997, -2.9342256, -6.5, 25.3, -2.6842256, 0.75, 13.299999, -2.6842256, 0.75, 12.299999, -2.6842256, 1, 12.299999, -2.9342256, 6.5, 26.3, -2.9342256, 6.5, 26.3, -2.6842256, 1, 13.299999, -2.6842256, -0.75, 25.3, -2.6842256, -0.75, 26.3, -2.6842256, -1, 26.3, -2.9342256, -6.5, 27.05, -2.6842256, -1, 27.3, -2.6842256, 0, 32.8, -2.9342256, 0, 32.8, -2.9342256, -6.5, 1.2999996, -0.93422556, -1.75, 1.2999996, -0.93422556, 1.75, 4.7999997, -0.93422556, 1.75, 4.7999997, -0.93422556, -1.75, 11.299999, -2.6842256, 0.75, 5.5499997, -2.9342256, 6.5, 27.05, -2.6842256, 1, 32.8, -2.9342256, 6.5)
+polygons = [PackedInt32Array(2, 1, 0), PackedInt32Array(3, 2, 4), PackedInt32Array(4, 2, 0), PackedInt32Array(4, 0, 5), PackedInt32Array(11, 10, 6), PackedInt32Array(6, 10, 7), PackedInt32Array(7, 10, 8), PackedInt32Array(8, 10, 9), PackedInt32Array(3, 4, 12), PackedInt32Array(12, 4, 13), PackedInt32Array(13, 4, 14), PackedInt32Array(14, 4, 15), PackedInt32Array(13, 6, 12), PackedInt32Array(12, 6, 7), PackedInt32Array(16, 14, 15), PackedInt32Array(17, 16, 18), PackedInt32Array(18, 16, 19), PackedInt32Array(19, 16, 15), PackedInt32Array(23, 22, 20), PackedInt32Array(20, 22, 21), PackedInt32Array(0, 1, 24), PackedInt32Array(8, 9, 24), PackedInt32Array(24, 9, 0), PackedInt32Array(0, 9, 25), PackedInt32Array(10, 11, 26), PackedInt32Array(17, 18, 26), PackedInt32Array(26, 18, 27), PackedInt32Array(26, 27, 10)]
+
+[node name="Sandbox" type="Node3D"]
+script = ExtResource("1_erm63")
+
+[node name="Spider" parent="." instance=ExtResource("2_23yaj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.168189, -2.7999997, 0)
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+navigation_mesh = SubResource("NavigationMesh_ypj6x")
+
+[node name="Floor" type="Node" parent="NavigationRegion3D"]
+
+[node name="Plates" type="Node" parent="NavigationRegion3D/Floor"]
+
+[node name="JumpPlate1" parent="NavigationRegion3D/Floor/Plates" instance=ExtResource("3_tu14p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.2000003, -3.4, 0)
+
+[node name="JumpPlate2" parent="NavigationRegion3D/Floor/Plates" instance=ExtResource("3_tu14p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.200001, -3.4, 0)
+
+[node name="JumpPlate3" parent="NavigationRegion3D/Floor/Plates" instance=ExtResource("3_tu14p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.200001, -3.4, 0)
+
+[node name="JumpPlate4" parent="NavigationRegion3D/Floor/Plates" instance=ExtResource("3_tu14p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.2000003, -3.4, -2)
+
+[node name="JumpPlate5" parent="NavigationRegion3D/Floor/Plates" instance=ExtResource("3_tu14p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.200001, -3.4, -2)
+
+[node name="JumpPlate6" parent="NavigationRegion3D/Floor/Plates" instance=ExtResource("3_tu14p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.200001, -3.4, -2)
+
+[node name="JumpPlate7" parent="NavigationRegion3D/Floor/Plates" instance=ExtResource("3_tu14p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.2000003, -3.4, 2)
+
+[node name="JumpPlate8" parent="NavigationRegion3D/Floor/Plates" instance=ExtResource("3_tu14p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.200001, -3.4, 2)
+
+[node name="JumpPlate9" parent="NavigationRegion3D/Floor/Plates" instance=ExtResource("3_tu14p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.200001, -3.4, 2)
+
+[node name="JumpPlate10" parent="NavigationRegion3D/Floor/Plates" instance=ExtResource("3_tu14p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.2000003, -3.4, 4)
+
+[node name="JumpPlate11" parent="NavigationRegion3D/Floor/Plates" instance=ExtResource("3_tu14p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.200001, -3.4, 4)
+
+[node name="JumpPlate12" parent="NavigationRegion3D/Floor/Plates" instance=ExtResource("3_tu14p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.200001, -3.4, 4)
+
+[node name="JumpPlate13" parent="NavigationRegion3D/Floor/Plates" instance=ExtResource("3_tu14p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.2000003, -3.4, -4)
+
+[node name="JumpPlate14" parent="NavigationRegion3D/Floor/Plates" instance=ExtResource("3_tu14p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.200001, -3.4, -4)
+
+[node name="JumpPlate15" parent="NavigationRegion3D/Floor/Plates" instance=ExtResource("3_tu14p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.200001, -3.4, -4)
+
+[node name="JumpPlate16" parent="NavigationRegion3D/Floor/Plates" instance=ExtResource("3_tu14p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.200001, -3.4, 2)
+
+[node name="JumpPlate17" parent="NavigationRegion3D/Floor/Plates" instance=ExtResource("3_tu14p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.200001, -3.4, 2)
+
+[node name="JumpPlate18" parent="NavigationRegion3D/Floor/Plates" instance=ExtResource("3_tu14p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.2, -3.4, 2)
+
+[node name="JumpPlate19" parent="NavigationRegion3D/Floor/Plates" instance=ExtResource("3_tu14p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.200001, -3.4, 4)
+
+[node name="JumpPlate20" parent="NavigationRegion3D/Floor/Plates" instance=ExtResource("3_tu14p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.200001, -3.4, 4)
+
+[node name="JumpPlate21" parent="NavigationRegion3D/Floor/Plates" instance=ExtResource("3_tu14p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.2, -3.4, 4)
+
+[node name="JumpPlate22" parent="NavigationRegion3D/Floor/Plates" instance=ExtResource("3_tu14p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.200001, -3.4, -4)
+
+[node name="JumpPlate23" parent="NavigationRegion3D/Floor/Plates" instance=ExtResource("3_tu14p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.200001, -3.4, -4)
+
+[node name="JumpPlate24" parent="NavigationRegion3D/Floor/Plates" instance=ExtResource("3_tu14p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.2, -3.4, -4)
+
+[node name="JumpPlate25" parent="NavigationRegion3D/Floor/Plates" instance=ExtResource("3_tu14p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.200001, -3.4, -2)
+
+[node name="JumpPlate26" parent="NavigationRegion3D/Floor/Plates" instance=ExtResource("3_tu14p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.200001, -3.4, -2)
+
+[node name="JumpPlate27" parent="NavigationRegion3D/Floor/Plates" instance=ExtResource("3_tu14p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.2, -3.4, -2)
+
+[node name="JumpPlate28" parent="NavigationRegion3D/Floor/Plates" instance=ExtResource("3_tu14p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.200001, -3.4, 0)
+
+[node name="JumpPlate29" parent="NavigationRegion3D/Floor/Plates" instance=ExtResource("3_tu14p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.2, -3.4, 0)
+
+[node name="JumpPlate30" parent="NavigationRegion3D/Floor/Plates" instance=ExtResource("3_tu14p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.2000003, -3.4, -6)
+
+[node name="JumpPlate31" parent="NavigationRegion3D/Floor/Plates" instance=ExtResource("3_tu14p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.200001, -3.4, -6)
+
+[node name="JumpPlate32" parent="NavigationRegion3D/Floor/Plates" instance=ExtResource("3_tu14p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.200001, -3.4, -6)
+
+[node name="JumpPlate33" parent="NavigationRegion3D/Floor/Plates" instance=ExtResource("3_tu14p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.200001, -3.4, -6)
+
+[node name="JumpPlate34" parent="NavigationRegion3D/Floor/Plates" instance=ExtResource("3_tu14p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.200001, -3.4, -6)
+
+[node name="JumpPlate35" parent="NavigationRegion3D/Floor/Plates" instance=ExtResource("3_tu14p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.2, -3.4, -6)
+
+[node name="JumpPlate36" parent="NavigationRegion3D/Floor/Plates" instance=ExtResource("3_tu14p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.2000003, -3.4, 6)
+
+[node name="JumpPlate37" parent="NavigationRegion3D/Floor/Plates" instance=ExtResource("3_tu14p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.200001, -3.4, 6)
+
+[node name="JumpPlate38" parent="NavigationRegion3D/Floor/Plates" instance=ExtResource("3_tu14p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.200001, -3.4, 6)
+
+[node name="JumpPlate39" parent="NavigationRegion3D/Floor/Plates" instance=ExtResource("3_tu14p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.200001, -3.4, 6)
+
+[node name="JumpPlate40" parent="NavigationRegion3D/Floor/Plates" instance=ExtResource("3_tu14p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.200001, -3.4, 6)
+
+[node name="JumpPlate41" parent="NavigationRegion3D/Floor/Plates" instance=ExtResource("3_tu14p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.2, -3.4, 6)
+
+[node name="JumpPlate42" parent="NavigationRegion3D/Floor/Plates" instance=ExtResource("3_tu14p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.2, -3.4, 2)
+
+[node name="JumpPlate43" parent="NavigationRegion3D/Floor/Plates" instance=ExtResource("3_tu14p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.2, -3.4, 4)
+
+[node name="JumpPlate44" parent="NavigationRegion3D/Floor/Plates" instance=ExtResource("3_tu14p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.2, -3.4, -4)
+
+[node name="JumpPlate45" parent="NavigationRegion3D/Floor/Plates" instance=ExtResource("3_tu14p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.2, -3.4, -2)
+
+[node name="JumpPlate46" parent="NavigationRegion3D/Floor/Plates" instance=ExtResource("3_tu14p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.2, -3.4, 0)
+
+[node name="JumpPlate47" parent="NavigationRegion3D/Floor/Plates" instance=ExtResource("3_tu14p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.2, -3.4, -6)
+
+[node name="JumpPlate48" parent="NavigationRegion3D/Floor/Plates" instance=ExtResource("3_tu14p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.2, -3.4, 6)
+
+[node name="JumpPlate49" parent="NavigationRegion3D/Floor/Plates" instance=ExtResource("3_tu14p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.2, -3.4, 2)
+
+[node name="JumpPlate50" parent="NavigationRegion3D/Floor/Plates" instance=ExtResource("3_tu14p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.2, -3.4, 2)
+
+[node name="JumpPlate51" parent="NavigationRegion3D/Floor/Plates" instance=ExtResource("3_tu14p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.2, -3.4, 4)
+
+[node name="JumpPlate52" parent="NavigationRegion3D/Floor/Plates" instance=ExtResource("3_tu14p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.2, -3.4, 4)
+
+[node name="JumpPlate53" parent="NavigationRegion3D/Floor/Plates" instance=ExtResource("3_tu14p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.2, -3.4, -4)
+
+[node name="JumpPlate54" parent="NavigationRegion3D/Floor/Plates" instance=ExtResource("3_tu14p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.2, -3.4, -4)
+
+[node name="JumpPlate55" parent="NavigationRegion3D/Floor/Plates" instance=ExtResource("3_tu14p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.2, -3.4, -2)
+
+[node name="JumpPlate56" parent="NavigationRegion3D/Floor/Plates" instance=ExtResource("3_tu14p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.2, -3.4, -2)
+
+[node name="JumpPlate57" parent="NavigationRegion3D/Floor/Plates" instance=ExtResource("3_tu14p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.2, -3.4, 0)
+
+[node name="JumpPlate58" parent="NavigationRegion3D/Floor/Plates" instance=ExtResource("3_tu14p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.2, -3.4, 0)
+
+[node name="JumpPlate59" parent="NavigationRegion3D/Floor/Plates" instance=ExtResource("3_tu14p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.2, -3.4, -6)
+
+[node name="JumpPlate60" parent="NavigationRegion3D/Floor/Plates" instance=ExtResource("3_tu14p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.2, -3.4, -6)
+
+[node name="JumpPlate61" parent="NavigationRegion3D/Floor/Plates" instance=ExtResource("3_tu14p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.2, -3.4, 6)
+
+[node name="JumpPlate62" parent="NavigationRegion3D/Floor/Plates" instance=ExtResource("3_tu14p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.2, -3.4, 6)
+
+[node name="JumpPlate63" parent="NavigationRegion3D/Floor/Plates" instance=ExtResource("3_tu14p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.2, -3.4, 2)
+
+[node name="JumpPlate64" parent="NavigationRegion3D/Floor/Plates" instance=ExtResource("3_tu14p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.2, -3.4, 4)
+
+[node name="JumpPlate65" parent="NavigationRegion3D/Floor/Plates" instance=ExtResource("3_tu14p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.2, -3.4, -4)
+
+[node name="JumpPlate66" parent="NavigationRegion3D/Floor/Plates" instance=ExtResource("3_tu14p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.2, -3.4, -2)
+
+[node name="JumpPlate67" parent="NavigationRegion3D/Floor/Plates" instance=ExtResource("3_tu14p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.2, -3.4, 0)
+
+[node name="JumpPlate68" parent="NavigationRegion3D/Floor/Plates" instance=ExtResource("3_tu14p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.2, -3.4, -6)
+
+[node name="JumpPlate69" parent="NavigationRegion3D/Floor/Plates" instance=ExtResource("3_tu14p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.2, -3.4, 6)
+
+[node name="JumpPlate70" parent="NavigationRegion3D/Floor/Plates" instance=ExtResource("3_tu14p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.2, -3.4, -4)
+
+[node name="JumpPlate71" parent="NavigationRegion3D/Floor/Plates" instance=ExtResource("3_tu14p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.2, -3.4, -2)
+
+[node name="JumpPlate72" parent="NavigationRegion3D/Floor/Plates" instance=ExtResource("3_tu14p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.2, -3.4, -6)
+
+[node name="JumpPlate73" parent="NavigationRegion3D/Floor/Plates" instance=ExtResource("3_tu14p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.2, -3.4, 4)
+
+[node name="JumpPlate74" parent="NavigationRegion3D/Floor/Plates" instance=ExtResource("3_tu14p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.2, -3.4, 6)
+
+[node name="JumpPlate75" parent="NavigationRegion3D/Floor/Plates" instance=ExtResource("3_tu14p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.2, -3.4, 2)
+
+[node name="JumpPlate76" parent="NavigationRegion3D/Floor/Plates" instance=ExtResource("3_tu14p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.2, -3.4, 2)
+
+[node name="JumpPlate77" parent="NavigationRegion3D/Floor/Plates" instance=ExtResource("3_tu14p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.2, -3.4, 2)
+
+[node name="JumpPlate78" parent="NavigationRegion3D/Floor/Plates" instance=ExtResource("3_tu14p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.2, -3.4, 4)
+
+[node name="JumpPlate79" parent="NavigationRegion3D/Floor/Plates" instance=ExtResource("3_tu14p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.2, -3.4, 4)
+
+[node name="JumpPlate80" parent="NavigationRegion3D/Floor/Plates" instance=ExtResource("3_tu14p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.2, -3.4, -4)
+
+[node name="JumpPlate81" parent="NavigationRegion3D/Floor/Plates" instance=ExtResource("3_tu14p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.2, -3.4, -4)
+
+[node name="JumpPlate82" parent="NavigationRegion3D/Floor/Plates" instance=ExtResource("3_tu14p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.2, -3.4, -2)
+
+[node name="JumpPlate83" parent="NavigationRegion3D/Floor/Plates" instance=ExtResource("3_tu14p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.2, -3.4, -2)
+
+[node name="JumpPlate84" parent="NavigationRegion3D/Floor/Plates" instance=ExtResource("3_tu14p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.2, -3.4, 0)
+
+[node name="JumpPlate85" parent="NavigationRegion3D/Floor/Plates" instance=ExtResource("3_tu14p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.2, -3.4, 0)
+
+[node name="JumpPlate86" parent="NavigationRegion3D/Floor/Plates" instance=ExtResource("3_tu14p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.2, -3.4, -6)
+
+[node name="JumpPlate87" parent="NavigationRegion3D/Floor/Plates" instance=ExtResource("3_tu14p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.2, -3.4, -6)
+
+[node name="JumpPlate88" parent="NavigationRegion3D/Floor/Plates" instance=ExtResource("3_tu14p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.2, -3.4, 6)
+
+[node name="JumpPlate89" parent="NavigationRegion3D/Floor/Plates" instance=ExtResource("3_tu14p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.2, -3.4, 6)
+
+[node name="JumpPlate90" parent="NavigationRegion3D/Floor/Plates" instance=ExtResource("3_tu14p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.2, -3.4, 2)
+
+[node name="JumpPlate91" parent="NavigationRegion3D/Floor/Plates" instance=ExtResource("3_tu14p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.2, -3.4, 4)
+
+[node name="JumpPlate92" parent="NavigationRegion3D/Floor/Plates" instance=ExtResource("3_tu14p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.2, -3.4, -4)
+
+[node name="JumpPlate93" parent="NavigationRegion3D/Floor/Plates" instance=ExtResource("3_tu14p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.2, -3.4, -2)
+
+[node name="JumpPlate94" parent="NavigationRegion3D/Floor/Plates" instance=ExtResource("3_tu14p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.2, -3.4, 0)
+
+[node name="JumpPlate95" parent="NavigationRegion3D/Floor/Plates" instance=ExtResource("3_tu14p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.2, -3.4, -6)
+
+[node name="JumpPlate96" parent="NavigationRegion3D/Floor/Plates" instance=ExtResource("3_tu14p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.2, -3.4, 6)
+
+[node name="Obstacles" type="Node" parent="NavigationRegion3D/Floor"]
+
+[node name="ColumnObstacle1" parent="NavigationRegion3D/Floor/Obstacles" instance=ExtResource("4_urhec")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.2, -3.4, 0)
+
+[node name="ColumnObstacle2" parent="NavigationRegion3D/Floor/Obstacles" instance=ExtResource("4_urhec")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.2, -3.4, 0)
+
+[node name="Traverse" type="Node3D" parent="NavigationRegion3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, -5.423093, 0)
+
+[node name="doors" type="Node3D" parent="NavigationRegion3D/Traverse"]
+
+[node name="Door1" parent="NavigationRegion3D/Traverse/doors" node_paths=PackedStringArray("spider") instance=ExtResource("5_3iinl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.9870094, -0.9000006, 3.028048, 0)
+spider = NodePath("../../../../Spider")
+
+[node name="Door2" parent="NavigationRegion3D/Traverse/doors" node_paths=PackedStringArray("spider") instance=ExtResource("5_3iinl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.9870094, -5.1000004, 3.001, 0)
+spider = NodePath("../../../../Spider")
+
+[node name="SquaredPlate1" parent="NavigationRegion3D/Traverse" instance=ExtResource("6_uwdjo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.0055084, 2.9, 0)

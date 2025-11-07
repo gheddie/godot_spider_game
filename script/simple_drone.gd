@@ -11,10 +11,13 @@ var spider: Spider
 var provoked := false
 var aggro_range := 12.0
 
-var life_points: int = 10
+const initial_life_points: int = 5
+
+var life_points: int
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	life_points = initial_life_points
 	GameSingleton.get_instance().register_player(self)
 	StaticPrinter.print(navigation_agent.name, self)
 	spider = GameSingleton.instance.spider
