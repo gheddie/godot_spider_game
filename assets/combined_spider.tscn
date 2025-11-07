@@ -1,35 +1,74 @@
-[gd_scene load_steps=5 format=3 uid="uid://btiytofg2r3gl"]
+[gd_scene load_steps=7 format=3 uid="uid://btiytofg2r3gl"]
 
-[ext_resource type="Script" uid="uid://bncvxk4d25huu" path="res://script/combined_spider.gd" id="1_117qw"]
+[ext_resource type="Script" uid="uid://jpc6tphh4tih" path="res://script/combined_spider_new.gd" id="1_117qw"]
 [ext_resource type="PackedScene" uid="uid://cdsg2h2g1kfrn" path="res://assets/blender/export/spider_leg.glb" id="1_in8r8"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_in8r8"]
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_in8r8"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
 
-[sub_resource type="BoxMesh" id="BoxMesh_in8r8"]
-size = Vector3(15, 15, 15)
+[sub_resource type="Sky" id="Sky_117qw"]
+sky_material = SubResource("ProceduralSkyMaterial_in8r8")
+
+[sub_resource type="Environment" id="Environment_s1ppl"]
+background_mode = 2
+sky = SubResource("Sky_117qw")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_in8r8"]
 
 [node name="CombinedSpider" type="CharacterBody3D"]
 script = ExtResource("1_117qw")
 
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_s1ppl")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
 [node name="Legs" type="Node" parent="."]
 
 [node name="Leg1" parent="Legs" instance=ExtResource("1_in8r8")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 3, 0, 0)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 2, 0, 0)
+
+[node name="Skeleton3D" parent="Legs/Leg1/Armature1" index="0"]
+bones/2/rotation = Quaternion(0.11677816, -7.7061066e-11, -2.7560978e-10, 0.99315804)
+bones/3/rotation = Quaternion(-0.28759798, -1.1732181e-11, 1.9327367e-10, 0.9577512)
+bones/4/rotation = Quaternion(-0.45127156, -1.6960478e-16, 2.8964196e-16, 0.89238673)
+bones/5/rotation = Quaternion(-0.32503173, 7.0795716e-09, 9.489952e-09, 0.9457031)
+bones/6/position = Vector3(48.247433, -20.000021, 1.7211879e-07)
+bones/6/rotation = Quaternion(0.7071069, -1.2407993e-08, -4.4914586e-08, 0.70710665)
+
+[node name="Bone_005" parent="Legs/Leg1/Armature1/Skeleton3D" index="0"]
+transform = Transform3D(-1.4901449e-08, -0.36815047, 0.9297663, -1.8219271e-08, -0.9297663, -0.36815047, 1, -2.2425638e-08, 7.1474306e-09, 51.935486, -10.699659, -7.2343753e-10)
+
+[node name="Bone_004" parent="Legs/Leg1/Armature1/Skeleton3D" index="1"]
+transform = Transform3D(1.1500278e-10, 0.28122613, 0.9596416, 8.9859016e-11, -0.9596416, 0.28122613, 1, 5.3890694e-11, -1.3563214e-10, 49.123226, -1.1032443, -1.2625763e-09)
+
+[node name="Bone_003" parent="Legs/Leg1/Armature1/Skeleton3D" index="2"]
+transform = Transform3D(1.1500213e-10, 0.939597, 0.34228277, 8.98592e-11, -0.34228277, 0.939597, 1, -7.729839e-11, -1.2379472e-10, 39.727257, 2.3195834, -4.895968e-10)
+
+[node name="Bone_002" parent="Legs/Leg1/Armature1/Skeleton3D" index="3"]
+transform = Transform3D(-2.72255e-10, 0.97272575, -0.23195833, 8.869722e-11, 0.23195833, 0.97272575, 1, 2.4425537e-10, -1.4942989e-10, 30, 0, -2.932154e-09)
 
 [node name="Leg2" parent="Legs" instance=ExtResource("1_in8r8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3)
 
 [node name="Leg3" parent="Legs" instance=ExtResource("1_in8r8")]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0, 3)
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0, 2)
 
 [node name="Leg4" parent="Legs" instance=ExtResource("1_in8r8")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -3, 0, 0)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2, 0, 0)
 
-[node name="Collider" type="CollisionShape3D" parent="."]
+[node name="Camera" type="Camera3D" parent="Legs"]
+transform = Transform3D(-3.7855173e-08, 0.5, -0.8660254, 2.1855694e-08, 0.8660254, 0.5, 1, 0, -4.371139e-08, -77, 52, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_in8r8")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 20, 0)
-mesh = SubResource("BoxMesh_in8r8")
+[editable path="Legs/Leg1"]
+[editable path="Legs/Leg2"]
+[editable path="Legs/Leg3"]
+[editable path="Legs/Leg4"]

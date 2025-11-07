@@ -15,7 +15,7 @@ polygons = [PackedInt32Array(2, 1, 0), PackedInt32Array(3, 2, 4), PackedInt32Arr
 script = ExtResource("1_erm63")
 
 [node name="Spider" parent="." instance=ExtResource("2_23yaj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.168189, -2.7999997, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.168189, -2.7999997, 0)
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 navigation_mesh = SubResource("NavigationMesh_ypj6x")

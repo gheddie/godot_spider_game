@@ -32,7 +32,6 @@ transform = Transform3D(-1, 6.556701e-08, 1.5727696e-07, -6.5440716e-08, -0.9999
 
 [node name="ForwardSpot2" type="SpotLight3D" parent="spider/Camera3D"]
 transform = Transform3D(-1, 6.5567e-08, 1.5727696e-07, -6.544071e-08, -0.99999976, 0.0008028522, 1.5732954e-07, 0.0008028522, 0.99999976, 0.24999993, 0.05640617, -1.0603856)
-light_energy = 10.0
 
 [node name="DownwardSpot" type="SpotLight3D" parent="spider/Camera3D"]
 transform = Transform3D(-1, 1.1356541e-07, -2.1855652e-08, -2.1764471e-08, 0.00080288947, 0.9999997, 1.1358293e-07, 0.9999997, -0.00080288947, -1.0956684e-07, 0.5387266, -0.82087135)

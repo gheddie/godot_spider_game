@@ -1,7 +1,16 @@
+class_name CombinedSpiderNew
+
 extends CharacterBody3D
 
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
+
+@onready var leg1: AnimationPlayer = $Legs/Leg1/AnimationPlayer
+@onready var leg2: AnimationPlayer = $Legs/Leg2/AnimationPlayer
+@onready var leg3: AnimationPlayer = $Legs/Leg3/AnimationPlayer
+@onready var leg4: AnimationPlayer = $Legs/Leg4/AnimationPlayer
+
+const WALK_ANIMATION: String = "LegAnimation"
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -24,3 +33,19 @@ func _physics_process(delta: float) -> void:
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 
 	move_and_slide()
+
+func start_walking() -> void:
+	print("walk spider AAA...")
+	leg1.play(WALK_ANIMATION)
+	leg2.play(WALK_ANIMATION)
+	leg3.play(WALK_ANIMATION)
+	leg4.play(WALK_ANIMATION)
+	pass
+	
+func stop_walking() -> void:
+	print("stop spider AAA...")
+	leg1.stop()
+	leg2.stop()
+	leg3.stop()
+	leg4.stop()
+	pass
