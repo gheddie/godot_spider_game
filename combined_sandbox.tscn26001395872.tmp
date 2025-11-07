@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://dwm2gr8rj1b0y"]
+
+[ext_resource type="Script" uid="uid://dl1po3brpyv13" path="res://script/combined_sandbox.gd" id="1_myscw"]
+[ext_resource type="PackedScene" uid="uid://btiytofg2r3gl" path="res://assets/combined_spider.tscn" id="1_x1s6y"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_widqk"]
+albedo_color = Color(0.23921569, 0.25490198, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_widqk"]
+size = Vector3(50, 1, 50)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_widqk"]
+size = Vector3(51, 1, 51)
+
+[node name="CombinedSandbox" type="Node3D"]
+script = ExtResource("1_myscw")
+
+[node name="Floor" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
+material_override = SubResource("StandardMaterial3D_widqk")
+mesh = SubResource("BoxMesh_widqk")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
+shape = SubResource("BoxShape3D_widqk")
+
+[node name="CombinedSpider" parent="." instance=ExtResource("1_x1s6y")]
+transform = Transform3D(0.1, 0, 0, 0, 1, 0, 0, 0, 0.1, 0, 0, 0)
+
+[node name="Grid" type="GridContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="StartWalking" type="Button" parent="Grid"]
+layout_mode = 2
+text = "Start walking"
