@@ -13,9 +13,12 @@ func _init(aDelay: float) -> void:
 
 func apply_duration(duration: float) -> void:
 	applied_duration += duration
-	print(applied_duration)
 	if applied_duration >= delay:
 		elapsed = true
 
 func has_elapsed() -> bool:
 	return elapsed
+	
+func reset() -> void:
+	applied_duration = 0.0
+	elapsed = false

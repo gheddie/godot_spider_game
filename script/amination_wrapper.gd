@@ -15,7 +15,7 @@ func _init(aPlayer:AnimationPlayer, aIdentifier:String, aName:String, aStartDela
 	identifier = aIdentifier
 	animation_name = aName
 	delay_timer = DelayTimer.new(aStartDelay)
-
+	
 func play(delta: float) -> void:
 	delay_timer.apply_duration(delta)
 	if delay_timer.has_elapsed():
@@ -26,3 +26,6 @@ func stop() -> void:
 
 func is_playing() -> bool:
 	return player.is_playing()
+
+func reset_start_delay() -> void:
+	delay_timer.reset()
