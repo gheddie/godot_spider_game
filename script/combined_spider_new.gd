@@ -21,10 +21,10 @@ const WALK_ANIMATION: String = "LegAnimation"
 
 func _ready() -> void:
 	spider_animator = CombinedAnimator.new()
-	spider_animator.put_animation_player(LEG_1, leg1, WALK_ANIMATION)
-	spider_animator.put_animation_player(LEG_2, leg2, WALK_ANIMATION)
-	spider_animator.put_animation_player(LEG_3, leg3, WALK_ANIMATION)
-	spider_animator.put_animation_player(LEG_4, leg4, WALK_ANIMATION)
+	spider_animator.put_animation_player(LEG_1, leg1, WALK_ANIMATION, 0.0)
+	spider_animator.put_animation_player(LEG_2, leg2, WALK_ANIMATION, 0.5)
+	spider_animator.put_animation_player(LEG_3, leg3, WALK_ANIMATION, 1.0)
+	spider_animator.put_animation_player(LEG_4, leg4, WALK_ANIMATION, 1.5)
 	
 func _process(delta: float) -> void:
 	spider_animator.on_process(delta)

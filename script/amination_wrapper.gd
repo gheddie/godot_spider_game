@@ -8,13 +8,18 @@ var identifier: String
 
 var animation_name: String
 
-func _init(aPlayer:AnimationPlayer, aIdentifier:String, aName:String) -> void:
+var delay_timer: DelayTimer
+
+func _init(aPlayer:AnimationPlayer, aIdentifier:String, aName:String, aStartDelay: float) -> void:
 	player = aPlayer
 	identifier = aIdentifier
 	animation_name = aName
+	delay_timer = DelayTimer.new(aStartDelay)
 
-func play() -> void:
-	player.play(animation_name)
+func play(delta: float) -> void:
+	delay_timer.apply_duration(delta)
+	if delay_timer.has_elapsed():
+		player.play(animation_name)
 
 func stop() -> void:
 	player.stop()
