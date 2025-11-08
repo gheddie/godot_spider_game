@@ -31,3 +31,9 @@ func on_process(delta: float) -> void:
 		for key in animations.keys():
 			if !animations.get(key).is_playing():
 				animations.get(key).play(delta)
+
+func stop_animating(animation_identifier: String) -> void:
+	animations.get(animation_identifier).stop()
+
+func play_once(animation_identifier: String) -> void:
+	animations.get(animation_identifier).play_single(animation_identifier)

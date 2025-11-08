@@ -34,3 +34,9 @@ func start_walking() -> void:
 	
 func stop_walking() -> void:	
 	spider_animator.stop_processing()
+	
+func stop_single_leg() -> void:
+	spider_animator.stop_animating(LEG_4)
+
+func move_single_leg() -> void:
+	spider_animator.play_once(LEG_4)

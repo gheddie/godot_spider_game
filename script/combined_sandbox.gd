@@ -9,12 +9,10 @@ func _ready() -> void:
 	
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("ui_right"):
-		walk_spider()
+		spider.start_walking()
 	if Input.is_action_just_pressed("ui_left"):
-		stop_spider()
-
-func walk_spider():
-	spider.start_walking()
-
-func stop_spider():
-	spider.stop_walking()
+		spider.stop_walking()
+	if Input.is_action_just_pressed("ui_up"):
+		spider.move_single_leg()
+	if Input.is_action_just_pressed("ui_down"):
+		spider.stop_single_leg()
