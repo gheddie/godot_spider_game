@@ -27,11 +27,10 @@ func _ready() -> void:
 	spider_animator.put_animation_player(LEG_4, leg4, WALK_ANIMATION)
 	
 func _process(delta: float) -> void:
-	# spider_animator.on_process()
-	pass
+	spider_animator.on_process(delta)
 
 func start_walking() -> void:
-	spider_animator.start()
+	spider_animator.start_processing()
 	
 func stop_walking() -> void:	
-	spider_animator.stop()
+	spider_animator.stop_processing()

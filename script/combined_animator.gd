@@ -4,20 +4,20 @@ extends Node
 
 var animations : Dictionary
 
+var processing : bool = true
+
 func put_animation_player(identifier: String, player: AnimationPlayer, animation_name: String) -> void:
 	animations.set(identifier, AnimationWrapper.new(player, identifier, animation_name))
 	
-func start() -> void:
-	for key in animations.keys():
-		animations.get(key).play()
-		
-func stop() -> void:
-	for key in animations.keys():
-		animations.get(key).stop()
+func stop_processing() -> void:
+	processing = false
+	
+func start_processing() -> void:
+	processing = true
 
-func on_process() -> void:
-	for key in animations.keys():
-		var a = animations.get(key)
-		# print(a.get_playing_speed())
-		if !a.is_playing():
-			a.play()
+func on_process(delta: float) -> void:
+	print(delta)
+	if processing:
+		for key in animations.keys():
+			if !animations.get(key).is_playing():
+				animations.get(key).play()
