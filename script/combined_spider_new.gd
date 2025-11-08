@@ -29,7 +29,7 @@ func _process(delta: float) -> void:
 	pass
 
 func start_walking() -> void:
-	spider_animator.start_walking()
+	spider_animator.start()
 	
 func stop_walking() -> void:	
-	spider_animator.stop_walking()
+	spider_animator.stop()

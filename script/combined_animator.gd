@@ -8,13 +8,14 @@ var animations : Dictionary
 
 func put_animation_player(identifier: String, player: AnimationPlayer) -> void:
 	animations.set(identifier, player)
-	AnimationWrapper.new(player, identifier)
+	var a = AnimationWrapper.new(player, identifier)
+	# a.moo()
 	
-func start_walking() -> void:
+func start() -> void:
 	for key in animations.keys():
 		animations.get(key).play(WALK_ANIMATION)
 		
-func stop_walking() -> void:
+func stop() -> void:
 	for key in animations.keys():
 		animations.get(key).stop()
 

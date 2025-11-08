@@ -12,3 +12,7 @@ func _init(aPlayer:AnimationPlayer, aIdentifier:String) -> void:
 
 func play() -> void:
 	player.play()
+
+func moo() -> void:
+	print(player)
+	print(identifier)
