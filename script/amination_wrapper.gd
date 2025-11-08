@@ -6,13 +6,18 @@ var player: AnimationPlayer
 
 var identifier: String
 
-func _init(aPlayer:AnimationPlayer, aIdentifier:String) -> void:
+var animation_name: String
+
+func _init(aPlayer:AnimationPlayer, aIdentifier:String, aName:String) -> void:
 	player = aPlayer
 	identifier = aIdentifier
+	animation_name = aName
 
 func play() -> void:
-	player.play()
+	player.play(animation_name)
 
-func moo() -> void:
-	print(player)
-	print(identifier)
+func stop() -> void:
+	player.stop()
+
+func is_playing() -> bool:
+	return player.is_playing()

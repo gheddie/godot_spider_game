@@ -15,14 +15,16 @@ const LEG_2 = "LEG_2"
 const LEG_3 = "LEG_3"
 const LEG_4 = "LEG_4"
 
+const WALK_ANIMATION: String = "LegAnimation"
+
 @onready var spider_animator: CombinedAnimator
 
 func _ready() -> void:
 	spider_animator = CombinedAnimator.new()
-	spider_animator.put_animation_player(LEG_1, leg1)
-	spider_animator.put_animation_player(LEG_2, leg2)
-	spider_animator.put_animation_player(LEG_3, leg3)
-	spider_animator.put_animation_player(LEG_4, leg4)
+	spider_animator.put_animation_player(LEG_1, leg1, WALK_ANIMATION)
+	spider_animator.put_animation_player(LEG_2, leg2, WALK_ANIMATION)
+	spider_animator.put_animation_player(LEG_3, leg3, WALK_ANIMATION)
+	spider_animator.put_animation_player(LEG_4, leg4, WALK_ANIMATION)
 	
 func _process(delta: float) -> void:
 	# spider_animator.on_process()
