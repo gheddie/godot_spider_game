@@ -10,6 +10,8 @@ var animation_name: String
 
 var delay_timer: DelayTimer
 
+var processing : bool = true
+
 func _init(aPlayer:AnimationPlayer, aIdentifier:String, aName:String, aStartDelay: float) -> void:
 	player = aPlayer
 	identifier = aIdentifier
@@ -18,11 +20,11 @@ func _init(aPlayer:AnimationPlayer, aIdentifier:String, aName:String, aStartDela
 	
 func play(delta: float) -> void:
 	delay_timer.apply_duration(delta)
-	if delay_timer.has_elapsed():
+	if delay_timer.has_elapsed() and processing:
 		player.play(animation_name)
 
 func stop() -> void:
-	player.stop()
+	processing = false
 
 func is_playing() -> bool:
 	return player.is_playing()

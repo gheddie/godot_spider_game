@@ -20,7 +20,7 @@ const WALK_ANIMATION: String = "LegAnimation"
 @onready var spider_animator: CombinedAnimator
 
 func _ready() -> void:
-	spider_animator = CombinedAnimator.new(false)
+	spider_animator = CombinedAnimator.new(true)
 	spider_animator.put_animation_player(LEG_1, leg1, WALK_ANIMATION, 0.0)
 	spider_animator.put_animation_player(LEG_2, leg2, WALK_ANIMATION, 0.1)
 	spider_animator.put_animation_player(LEG_3, leg3, WALK_ANIMATION, 0.2)
