@@ -37,3 +37,11 @@ grow_vertical = 2
 [node name="StartWalking" type="Button" parent="Grid"]
 layout_mode = 2
 text = "Start walking"
+
+[node name="StopWalking" type="Button" parent="Grid"]
+layout_mode = 2
+text = "StopWalking"
+
+[node name="Stab" type="Button" parent="Grid"]
+layout_mode = 2
+text = "Stab"

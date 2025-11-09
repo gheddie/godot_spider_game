@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://dghejfp0iqx4v"]
+
+[ext_resource type="PackedScene" uid="uid://qaqmyevtue00" path="res://assets/blender/export/CAT/CatBody.glb" id="1_0fqor"]
+[ext_resource type="PackedScene" uid="uid://dm7i1yok06dxl" path="res://assets/blender/export/CAT/CatLeg.glb" id="2_o6mdy"]
+
+[node name="CatCreature2" type="CharacterBody3D"]
+
+[node name="Body" type="CharacterBody3D" parent="."]
+
+[node name="CatBody" parent="Body" instance=ExtResource("1_0fqor")]
+
+[node name="Legs" type="Node" parent="."]
+
+[node name="Leg1" type="CharacterBody3D" parent="Legs"]
+
+[node name="CatLeg" parent="Legs/Leg1" instance=ExtResource("2_o6mdy")]
+
+[node name="Leg2" type="CharacterBody3D" parent="Legs"]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0, 0)
+
+[node name="CatLeg" parent="Legs/Leg2" instance=ExtResource("2_o6mdy")]
+
+[node name="Leg3" type="CharacterBody3D" parent="Legs"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
+
+[node name="CatLeg" parent="Legs/Leg3" instance=ExtResource("2_o6mdy")]
+
+[node name="Leg4" type="CharacterBody3D" parent="Legs"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
+
+[node name="CatLeg" parent="Legs/Leg4" instance=ExtResource("2_o6mdy")]

@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bgiv0pjdooynk"]
+
+[ext_resource type="PackedScene" uid="uid://dm7i1yok06dxl" path="res://assets/blender/export/CAT/CatLeg.glb" id="1_f7f7c"]
+
+[node name="CatLeg" type="Node3D"]
+
+[node name="CatLeg" parent="." instance=ExtResource("1_f7f7c")]

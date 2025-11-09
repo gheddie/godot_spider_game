@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bxxicf1upq5m0"]
+
+[ext_resource type="PackedScene" uid="uid://c25mmhr6bydbn" path="res://assets/blender/export/CAT/CatWeapon.glb" id="1_rn72m"]
+
+[node name="CatWapeon" type="Node3D"]
+
+[node name="CatWeapon" parent="." instance=ExtResource("1_rn72m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.6, 0)

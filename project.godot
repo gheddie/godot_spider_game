@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="SpiderGame"
-run/main_scene="uid://dwm2gr8rj1b0y"
+run/main_scene="uid://cuuomv7ufxe24"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 

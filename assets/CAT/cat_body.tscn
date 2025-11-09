@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bai8w7vuq0nnc"]
+
+[ext_resource type="PackedScene" uid="uid://qaqmyevtue00" path="res://assets/blender/export/CAT/CatBody.glb" id="1_ltu0t"]
+
+[node name="CatBody" type="Node3D"]
+
+[node name="CatBody" parent="." instance=ExtResource("1_ltu0t")]

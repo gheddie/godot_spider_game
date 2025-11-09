@@ -1,0 +1,90 @@
+[gd_scene load_steps=6 format=3 uid="uid://3jr76p77vilk"]
+
+[ext_resource type="Script" uid="uid://cr8eacr0m6o00" path="res://script/CAT/cat_creature.gd" id="1_3yh4a"]
+[ext_resource type="PackedScene" uid="uid://bgiv0pjdooynk" path="res://assets/CAT/cat_leg.tscn" id="1_nl3vn"]
+[ext_resource type="PackedScene" uid="uid://bai8w7vuq0nnc" path="res://assets/CAT/cat_body.tscn" id="2_78oaj"]
+[ext_resource type="PackedScene" uid="uid://bxxicf1upq5m0" path="res://assets/CAT/cat_wapeon.tscn" id="3_haqsp"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3yh4a"]
+
+[node name="CatCreature" type="CharacterBody3D"]
+script = ExtResource("1_3yh4a")
+
+[node name="Body" parent="." instance=ExtResource("2_78oaj")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_3yh4a")
+
+[node name="Leg1" parent="." instance=ExtResource("1_nl3vn")]
+
+[node name="Skeleton3D" parent="Leg1/CatLeg/Armature" index="0"]
+bones/1/rotation = Quaternion(-0.005192751, 0, 0, 0.9999865)
+bones/2/rotation = Quaternion(-0.6479206, 0, 0, 0.7617079)
+bones/3/position = Vector3(-3.4999998, -2, 0)
+
+[node name="Bone_002" parent="Leg1/CatLeg/Armature/Skeleton3D" index="0"]
+transform = Transform3D(0, -0.15013821, -0.98866504, 0, -0.98866504, 0.15013821, -1, 0, 0, -3.1998813, -0.022847798, 0)
+
+[node name="Bone_001" parent="Leg1/CatLeg/Armature/Skeleton3D" index="1"]
+transform = Transform3D(0, -0.99994606, -0.010385362, 0, -0.010385362, 0.99994606, -1, 0, 0, -1, 0, 0)
+
+[node name="Leg2" parent="." instance=ExtResource("1_nl3vn")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0, 0)
+
+[node name="Skeleton3D" parent="Leg2/CatLeg/Armature" index="0"]
+bones/1/rotation = Quaternion(-0.005192751, 0, 0, 0.9999865)
+bones/2/rotation = Quaternion(-0.6479206, 0, 0, 0.7617079)
+bones/3/position = Vector3(-3.4999998, -2, 0)
+
+[node name="Bone_002" parent="Leg2/CatLeg/Armature/Skeleton3D" index="0"]
+transform = Transform3D(0, -0.15013821, -0.98866504, 0, -0.98866504, 0.15013821, -1, 0, 0, -3.1998813, -0.022847798, 0)
+
+[node name="Bone_001" parent="Leg2/CatLeg/Armature/Skeleton3D" index="1"]
+transform = Transform3D(0, -0.99994606, -0.010385362, 0, -0.010385362, 0.99994606, -1, 0, 0, -1, 0, 0)
+
+[node name="Leg3" parent="." instance=ExtResource("1_nl3vn")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 9.685755e-08)
+
+[node name="Skeleton3D" parent="Leg3/CatLeg/Armature" index="0"]
+bones/1/rotation = Quaternion(-0.005192751, 0, 0, 0.9999865)
+bones/2/rotation = Quaternion(-0.6479206, 0, 0, 0.7617079)
+bones/3/position = Vector3(-3.4999998, -2, 0)
+
+[node name="Bone_002" parent="Leg3/CatLeg/Armature/Skeleton3D" index="0"]
+transform = Transform3D(0, -0.15013821, -0.98866504, 0, -0.98866504, 0.15013821, -1, 0, 0, -3.1998813, -0.022847798, 0)
+
+[node name="Bone_001" parent="Leg3/CatLeg/Armature/Skeleton3D" index="1"]
+transform = Transform3D(0, -0.99994606, -0.010385362, 0, -0.010385362, 0.99994606, -1, 0, 0, -1, 0, 0)
+
+[node name="Leg4" parent="." instance=ExtResource("1_nl3vn")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0.10000008)
+
+[node name="Skeleton3D" parent="Leg4/CatLeg/Armature" index="0"]
+bones/1/rotation = Quaternion(-0.005192751, 0, 0, 0.9999865)
+bones/2/rotation = Quaternion(-0.6479206, 0, 0, 0.7617079)
+bones/3/position = Vector3(-3.4999998, -2, 0)
+
+[node name="Bone_002" parent="Leg4/CatLeg/Armature/Skeleton3D" index="0"]
+transform = Transform3D(0, -0.15013821, -0.98866504, 0, -0.98866504, 0.15013821, -1, 0, 0, -3.1998813, -0.022847798, 0)
+
+[node name="Bone_001" parent="Leg4/CatLeg/Armature/Skeleton3D" index="1"]
+transform = Transform3D(0, -0.99994606, -0.010385362, 0, -0.010385362, 0.99994606, -1, 0, 0, -1, 0, 0)
+
+[node name="Weapon1" parent="." instance=ExtResource("3_haqsp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6, 1.5999999, 0)
+
+[node name="Weapon2" parent="." instance=ExtResource("3_haqsp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, 1.5999999, 0)
+
+[editable path="Leg1"]
+[editable path="Leg1/CatLeg"]
+[editable path="Leg2"]
+[editable path="Leg2/CatLeg"]
+[editable path="Leg3"]
+[editable path="Leg3/CatLeg"]
+[editable path="Leg4"]
+[editable path="Leg4/CatLeg"]
+[editable path="Weapon1"]
+[editable path="Weapon1/CatWeapon"]
+[editable path="Weapon2"]
+[editable path="Weapon2/CatWeapon"]
