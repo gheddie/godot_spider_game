@@ -32,5 +32,5 @@ func is_playing() -> bool:
 func reset_start_delay() -> void:
 	delay_timer.reset()
 
-func play_single(animation_identifier: String) -> void:
-	pass
+func play_dedicated(animation_identifier: String, exectuion_count: int) -> void:
+	player.play(animation_name)

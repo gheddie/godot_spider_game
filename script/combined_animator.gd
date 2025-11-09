@@ -35,5 +35,5 @@ func on_process(delta: float) -> void:
 func stop_animating(animation_identifier: String) -> void:
 	animations.get(animation_identifier).stop()
 
-func play_once(animation_identifier: String) -> void:
-	animations.get(animation_identifier).play_single(animation_identifier)
+func play_dedicated(animation_identifier: String, exectuion_count: int) -> void:
+	animations.get(animation_identifier).play_dedicated(animation_identifier, exectuion_count)

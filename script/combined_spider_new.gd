@@ -39,4 +39,4 @@ func stop_single_leg() -> void:
 	spider_animator.stop_animating(LEG_4)
 
 func move_single_leg() -> void:
-	spider_animator.play_once(LEG_4)
+	spider_animator.play_dedicated(LEG_4, 8)
