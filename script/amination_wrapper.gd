@@ -12,11 +12,14 @@ var delay_timer: DelayTimer
 
 var processing : bool = true
 
-func _init(aPlayer:AnimationPlayer, aIdentifier:String, aName:String, aStartDelay: float) -> void:
+var single_fire : bool
+
+func _init(aPlayer:AnimationPlayer, aIdentifier:String, aName:String, aStartDelay: float, aSingleFire: bool) -> void:
 	player = aPlayer
 	identifier = aIdentifier
 	animation_name = aName
 	delay_timer = DelayTimer.new(aStartDelay)
+	single_fire = aSingleFire
 	
 func play(delta: float) -> void:
 	delay_timer.apply_duration(delta)

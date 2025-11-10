@@ -15,16 +15,25 @@ extends CharacterBody3D
 const WALK_ANIMATION: String = "RunLeg"
 const STAB_ANIMATION: String = "PushWeapon"
 
+const LEG_1: String = "LEG_1"
+const LEG_2: String = "LEG_2"
+const LEG_3: String = "LEG_3"
+const LEG_4: String = "LEG_4"
+
+const WEAPON_1: String = "WEAPON_1"
+const WEAPON_2: String = "WEAPON_2"
+
 func _ready() -> void:
 	
 	animator = CombinedAnimator.new(true)
 	
-	animator.put_animation_player("LEG_1", leg1, WALK_ANIMATION, 0.0)
-	animator.put_animation_player("LEG_2", leg2, WALK_ANIMATION, 0.1)
-	animator.put_animation_player("LEG_3", leg3, WALK_ANIMATION, 0.2)
-	animator.put_animation_player("LEG_4", leg4, WALK_ANIMATION, 0.3)
-	animator.put_animation_player("WEAPON_1", weapon1, STAB_ANIMATION, 5.0)
-	animator.put_animation_player("WEAPON_2", weapon2, STAB_ANIMATION, 5.0)
+	animator.put_animation_player(LEG_1, leg1, WALK_ANIMATION, 0.0, false)
+	animator.put_animation_player(LEG_2, leg2, WALK_ANIMATION, 0.1, false)
+	animator.put_animation_player(LEG_3, leg3, WALK_ANIMATION, 0.2, false)
+	animator.put_animation_player(LEG_4, leg4, WALK_ANIMATION, 0.3, false)
+	
+	animator.put_animation_player(WEAPON_1, weapon1, STAB_ANIMATION, 2.0, true)
+	animator.put_animation_player(WEAPON_2, weapon2, STAB_ANIMATION, 2.0, true)
 
 	animator.start_processing()
 	
@@ -34,3 +43,15 @@ func _process(delta: float) -> void:
 		position.x += 1
 	if Input.is_action_pressed("ui_down"):
 		rotation.x += 1
+	if Input.is_action_just_pressed("ui_left"):
+		stab_1()
+	if Input.is_action_just_pressed("ui_right"):
+		stab_2()
+
+func stab_1() -> void:
+	print("stabbing 1...")
+	animator.play_dedicated(WEAPON_1, 0)	
+	
+func stab_2() -> void:
+	print("stabbing 2...")
+	animator.play_dedicated(WEAPON_2, 0)	
