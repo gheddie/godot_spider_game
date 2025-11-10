@@ -32,6 +32,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6, 1.5999999, 0)
 [node name="Weapon2" parent="." instance=ExtResource("3_haqsp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, 1.5999999, 0)
 
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-1, 0, 8.742278e-08, 2.262668e-08, 0.9659259, 0.25881907, -8.444392e-08, 0.25881907, -0.9659258, 0, 4.1, -4.8)
+
 [editable path="Leg1"]
 [editable path="Leg1/CatLeg"]
 [editable path="Leg2"]

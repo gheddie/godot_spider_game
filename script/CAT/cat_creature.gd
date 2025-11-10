@@ -23,6 +23,8 @@ const LEG_4: String = "LEG_4"
 const WEAPON_1: String = "WEAPON_1"
 const WEAPON_2: String = "WEAPON_2"
 
+const SPEED: int = 10
+
 func _ready() -> void:
 	
 	animator = CombinedAnimator.new(true)
@@ -39,14 +41,14 @@ func _ready() -> void:
 	
 func _process(delta: float) -> void:
 	animator.on_process(delta)
-	if Input.is_action_just_pressed("ui_up"):
-		position.x += 1
-	if Input.is_action_pressed("ui_down"):
-		rotation.x += 1
+	if Input.is_action_pressed("move_forward"):
+		position.z += SPEED * delta
+	if Input.is_action_pressed("move_backward"):
+		position.z -= SPEED * delta
 	if Input.is_action_just_pressed("ui_left"):
-		stab_1()
-	if Input.is_action_just_pressed("ui_right"):
 		stab_2()
+	if Input.is_action_just_pressed("ui_right"):
+		stab_1()
 
 func stab_1() -> void:
 	print("stabbing 1...")
