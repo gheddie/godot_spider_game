@@ -46,8 +46,6 @@ text = "Stop"
 layout_mode = 2
 text = "Stab"
 
-[node name="CatCreature" parent="." instance=ExtResource("1_ykpfg")]
-
 [node name="Floor" type="Node" parent="."]
 
 [node name="JumpPlate1" parent="Floor" instance=ExtResource("3_xjt4o")]
@@ -292,3 +290,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.6000004, -3.6000001, 4)
 
 [node name="JumpPlate81" parent="Floor" instance=ExtResource("3_xjt4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.6000004, -3.6000001, 7.9)
+
+[node name="CatCreature" parent="." instance=ExtResource("1_ykpfg")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, -0.1, 0)
