@@ -34,7 +34,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6, 1.5999999, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, 1.5999999, 0)
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(-1, 0, 8.742278e-08, 2.262668e-08, 0.9659259, 0.25881907, -8.444392e-08, 0.25881907, -0.9659258, 0, 4.1, -4.8)
+transform = Transform3D(-9.999999, -2.144786e-14, 8.742278e-07, 4.371139e-07, 8.660254, 5, -7.571034e-07, 5, -8.660254, 0, 6.100001, -8.8)
 
 [editable path="Leg1"]
 [editable path="Leg1/CatLeg"]

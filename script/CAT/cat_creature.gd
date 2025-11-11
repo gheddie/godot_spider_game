@@ -30,9 +30,9 @@ func _ready() -> void:
 	animator = CombinedAnimator.new(true)
 	
 	animator.put_animation_player(LEG_1, leg1, WALK_ANIMATION, 0.0, false)
-	animator.put_animation_player(LEG_2, leg2, WALK_ANIMATION, 0.1, false)
-	animator.put_animation_player(LEG_3, leg3, WALK_ANIMATION, 0.2, false)
-	animator.put_animation_player(LEG_4, leg4, WALK_ANIMATION, 0.3, false)
+	animator.put_animation_player(LEG_2, leg2, WALK_ANIMATION, 0.2, false)
+	animator.put_animation_player(LEG_3, leg3, WALK_ANIMATION, 0.4, false)
+	animator.put_animation_player(LEG_4, leg4, WALK_ANIMATION, 0.6, false)
 	
 	animator.put_animation_player(WEAPON_1, weapon1, STAB_ANIMATION, 2.0, true)
 	animator.put_animation_player(WEAPON_2, weapon2, STAB_ANIMATION, 2.0, true)
