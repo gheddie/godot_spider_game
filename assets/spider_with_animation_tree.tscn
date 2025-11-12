@@ -36,8 +36,32 @@ graph_offset = Vector2(100.786804, 0)
 [node name="Spider" instance=ExtResource("1_5bo6m")]
 script = ExtResource("2_ugwn1")
 
+[node name="Skeleton3D" parent="Armature4" index="0"]
+bones/1/rotation = Quaternion(0, 0, 0.060939573, 0.9981415)
+bones/2/rotation = Quaternion(0.11045172, -2.2020141e-10, 3.5976017e-10, 0.9938816)
+bones/3/rotation = Quaternion(-0.26938397, -4.9359733e-10, -3.7722991e-10, 0.9630329)
+bones/4/rotation = Quaternion(-0.4208335, 1.113354e-09, 2.0336144e-10, 0.9071379)
+bones/5/rotation = Quaternion(-0.30209196, 4.831113e-09, 1.0224251e-08, 0.9532789)
+bones/6/position = Vector3(50.33333, -20, -3.7265007)
+bones/6/rotation = Quaternion(0.5000001, -0.49999988, 0.49999988, 0.5000001)
+
+[node name="Bone_005" parent="Armature4/Skeleton3D" index="0"]
+transform = Transform3D(0.12165261, -0.23193967, 0.96509314, -2.1436877e-08, -0.9723148, -0.23367527, 0.9925727, 0.028427187, -0.118284635, 52.68053, -10.283881, -4.005421)
+
+[node name="Bone_004" parent="Armature4/Skeleton3D" index="1"]
+transform = Transform3D(0.12165262, 0.36624464, 0.9225322, -3.542039e-10, -0.9294354, 0.36898518, 0.9925727, -0.044888005, -0.113068245, 49.018085, -0.98952746, -3.5565412)
+
+[node name="Bone_003" parent="Armature4/Skeleton3D" index="2"]
+transform = Transform3D(0.12165262, 0.94088084, 0.31613892, 1.5418322e-09, -0.31850454, 0.94792134, 0.9925727, -0.115317106, -0.038746916, 39.609276, 2.195518, -2.4033701)
+
+[node name="Bone_002" parent="Armature4/Skeleton3D" index="3"]
+transform = Transform3D(0.12165262, 0.96835476, -0.21792112, 5.171804e-10, 0.2195518, 0.97560084, 0.9925727, -0.118684396, 0.026709052, 29.925728, 0, -1.2165262)
+
+[node name="Bone_001" parent="Armature4/Skeleton3D" index="4"]
+transform = Transform3D(0.12165262, 0.9925727, 0, 0, 0, 1, 0.9925727, -0.12165262, 0, 20, 0, 0)
+
 [node name="Cylinder_161" parent="." index="11"]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 29.000004, -4)
+transform = Transform3D(0.6, 0, 0, 0, -1.7484555e-07, -0.6, 0, 4, -2.6226834e-08, 0, 29.000004, -4)
 
 [node name="Camera3D" type="Camera3D" parent="." index="13"]
 transform = Transform3D(-3.8714358e-08, -0.5, 0.8660254, -2.2351745e-08, 0.8660254, 0.5, -1, 0, -4.470349e-08, 77.100006, 45.5, 0)

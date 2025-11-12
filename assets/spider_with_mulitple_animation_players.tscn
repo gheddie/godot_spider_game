@@ -1,0 +1,36 @@
+[gd_scene load_steps=4 format=3 uid="uid://i2wxn5cf4tpj"]
+
+[ext_resource type="PackedScene" uid="uid://c0ff0o6dnb5t0" path="res://assets/blender/export/StabbingSpider.glb" id="1_mgmp5"]
+[ext_resource type="Script" uid="uid://cffu0brs3fkoc" path="res://script/spider_with_mulitple_animation_players.gd" id="2_mgfeq"]
+[ext_resource type="AnimationLibrary" uid="uid://bwb5rokeyov7u" path="res://animation_library/stabbing_spider_anim_lib.res" id="2_ufhig"]
+
+[node name="SpiderMultipleAnimTrees" instance=ExtResource("1_mgmp5")]
+script = ExtResource("2_mgfeq")
+
+[node name="Skeleton3D" parent="Armature3" index="0"]
+bones/2/rotation = Quaternion(0.10975748, -7.511167e-11, -2.761473e-10, 0.9939585)
+bones/3/rotation = Quaternion(-0.26767737, -7.72223e-12, 1.9347536e-10, 0.9635086)
+bones/4/rotation = Quaternion(-0.41755143, 9.702409e-17, -3.2166397e-17, 0.90865326)
+bones/5/rotation = Quaternion(-0.29952356, 7.3318125e-09, 9.2964525e-09, 0.9540889)
+bones/6/position = Vector3(50.822475, -20, 3.648549e-08)
+bones/6/rotation = Quaternion(-0.50000006, 0.5000002, -0.49999994, 0.49999994)
+
+[node name="Bone_005" parent="Armature3/Skeleton3D" index="0"]
+transform = Transform3D(-1.295475e-08, -0.21929646, 0.9756584, -1.9661506e-08, -0.9756584, -0.21929646, 1, -2.2023839e-08, 8.327712e-09, 53.021927, -10.242155, -9.450924e-10)
+
+[node name="Bone_004" parent="Armature3/Skeleton3D" index="1"]
+transform = Transform3D(1.1498261e-10, 0.37768352, 0.92593485, 8.438651e-11, -0.92593485, 0.37768352, 1, 3.4709395e-11, -1.383378e-10, 49.24509, -0.9828057, -1.2922441e-09)
+
+[node name="Bone_003" parent="Armature3/Skeleton3D" index="2"]
+transform = Transform3D(1.1498279e-10, 0.9486028, 0.3164693, 8.438661e-11, -0.3164693, 0.9486028, 1, -8.23672e-11, -1.1643791e-10, 39.759064, 2.1818874, -4.6854454e-10)
+
+[node name="Bone_002" parent="Armature3/Skeleton3D" index="3"]
+transform = Transform3D(-2.7225205e-10, 0.9759066, -0.21818873, 8.869728e-11, 0.21818873, 0.9759066, 1, 2.463398e-10, -1.459626e-10, 30, 0, -2.9319143e-09)
+
+[node name="Cylinder_161" parent="." index="11"]
+transform = Transform3D(0.6, 0, 0, 0, -1.7484555e-07, -0.6, 0, 4, -2.6226834e-08, 0, 29.000004, -4)
+
+[node name="TheOtherAnimationPlayer" type="AnimationPlayer" parent="." index="13"]
+libraries = {
+&"stabbing_spider_anim_lib": ExtResource("2_ufhig")
+}
