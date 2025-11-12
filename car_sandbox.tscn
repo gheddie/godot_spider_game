@@ -28,9 +28,6 @@ environment = SubResource("Environment_hfy4q")
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
 shadow_enabled = true
 
-[node name="Car" parent="." instance=ExtResource("1_da0l7")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 734, 379, 99)
-
 [node name="Floor" type="StaticBody3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
@@ -55,3 +52,6 @@ transform = Transform3D(-4.371138e-06, 1.9073486e-06, 99.999985, -1.1066044e-13,
 
 [node name="CarTrailElement3" parent="TrailElements" instance=ExtResource("3_hfy4q")]
 transform = Transform3D(-4.222195e-06, -25.8819, 96.59257, -1.1313338e-06, 96.59257, 25.8819, -100, -1.7774244e-13, -4.3711384e-06, -2174, 276, 0)
+
+[node name="Ship" parent="." instance=ExtResource("1_da0l7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 765.8229, 219.8877, 99.88995)

@@ -1,37 +1,38 @@
-[gd_scene load_steps=4 format=3 uid="uid://c4gqvu2nvf553"]
+[gd_scene load_steps=6 format=3 uid="uid://c4gqvu2nvf553"]
 
 [ext_resource type="Script" uid="uid://144ioxkoh3pu" path="res://script/car.gd" id="1_ho5m3"]
-[ext_resource type="PackedScene" uid="uid://dh3s7bf6edgvj" path="res://assets/spinning_wheel.tscn" id="1_yj4dp"]
+[ext_resource type="PackedScene" uid="uid://ixh5lc7vbvxe" path="res://assets/blender/spaceship/glb/spaceship_thruster.glb" id="3_2d0ee"]
+[ext_resource type="PackedScene" uid="uid://c3ai5ohjf3csb" path="res://assets/blender/spaceship/spaceship_body.blend" id="3_npdvv"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_yj4dp"]
-size = Vector3(57, 17, 39)
+size = Vector3(61, 20, 17)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2d0ee"]
+size = Vector3(19, 18, 13)
 
 [node name="Car" type="RigidBody3D"]
 script = ExtResource("1_ho5m3")
 
-[node name="Wheels" type="Node" parent="."]
+[node name="BodyCollider" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.5, 0)
+shape = SubResource("BoxShape3D_yj4dp")
 
-[node name="Wheel1" parent="." instance=ExtResource("1_yj4dp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, 16)
+[node name="Thruster1" parent="." instance=ExtResource("3_2d0ee")]
+transform = Transform3D(9.565081, 0, 0, 0, 5, 0, 0, 0, 5, 15, 0, 15)
 
-[node name="Wheel2" parent="." instance=ExtResource("1_yj4dp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, -16)
+[node name="ThrusterCollider1" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, -2.5, 15)
+shape = SubResource("BoxShape3D_2d0ee")
 
-[node name="Wheel3" parent="." instance=ExtResource("1_yj4dp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, -16)
-
-[node name="Wheel4" parent="." instance=ExtResource("1_yj4dp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 16)
-
-[node name="Wheel5" parent="." instance=ExtResource("1_yj4dp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 16)
-
-[node name="Wheel6" parent="." instance=ExtResource("1_yj4dp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -16)
+[node name="spaceship_body" parent="." instance=ExtResource("3_npdvv")]
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1.1920929e-07, 0, 1, 0, 1, 0, -1, 0, 1.1920929e-07, 15, 18, 0)
+transform = Transform3D(1.1459132e-07, -0.27563736, 0.9612617, 3.2858534e-08, 0.9612617, 0.27563736, -1, 0, 1.1920929e-07, 71.01256, 38, 0)
 current = true
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("BoxShape3D_yj4dp")
+[node name="Thruster2" parent="." instance=ExtResource("3_2d0ee")]
+transform = Transform3D(9.565081, 0, 0, 0, 5, 0, 0, 0, 5, 15, 0, -15)
+
+[node name="ThrusterCollider2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, -2.5, -15)
+shape = SubResource("BoxShape3D_2d0ee")

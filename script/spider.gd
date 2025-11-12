@@ -48,7 +48,7 @@ func _ready() -> void:
 	anim.loop_mode = (Animation.LOOP_LINEAR)
 	
 	click()
-	lights_on()
+	lights_off()
 	
 func _physics_process(delta: float) -> void:
 	fall(delta)

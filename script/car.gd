@@ -37,25 +37,20 @@ func _ready() -> void:
 	
 	gravity_scale = 2.0		
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
-	# print(gravity_scale)
-	pass
-
 func _physics_process(delta: float) -> void:
 	
 	var velocity := Vector3.ZERO
 	
-	var direction := Input.get_vector("ui_left", "ui_right", "", "")
+	var direction := Input.get_vector("turn_left", "turn_right", "", "")
 
-	if Input.is_action_pressed('ui_up'):
+	if Input.is_action_pressed('move_forward'):
 		velocity.x -= clamp(speed, 0.0, MAX_SPEED)
-	if Input.is_action_pressed('ui_down'):
+	if Input.is_action_pressed('move_backward'):
 		velocity.x += clamp(speed, 0.0, MAX_SPEED)
-	if Input.is_action_pressed('ui_right'):
+	if Input.is_action_pressed('turn_right'):
 		# apply_torque(Vector3(direction.x,direction.y,0.0))
 		body_rotation -= ROTATION_DIFF
-	if Input.is_action_pressed('ui_left'):
+	if Input.is_action_pressed('turn_left'):
 		# apply_torque(Vector3(direction.x,direction.y,0.0))
 		body_rotation += ROTATION_DIFF
 		
@@ -64,19 +59,19 @@ func _physics_process(delta: float) -> void:
 	apply_impulse(velocity.rotated(Vector3.UP, rotation.y), Vector3.ZERO)
 	apply_torque(velocity.rotated(Vector3.UP, rotation.x))
 	
-	turnWheels()
+	# turnWheels()
 	
 	# Add the gravity.
 	# if not is_on_floor():
 	# velocity += get_gravity() * delta * 1000				
 	
 func turnWheels() -> void:
-	if Input.is_action_just_pressed('ui_up'):
+	if Input.is_action_just_pressed('move_forward'):
 		print("turn wheels forward...")
 		for tmp_wheel:SpinningWheel in wheels.values():
 			print("wheel")
 			tmp_wheel.roll_forward()
-	if Input.is_action_just_pressed('ui_down'):
+	if Input.is_action_just_pressed('move_backward'):
 		print("turn wheels backward...")
 		for tmp_wheel:SpinningWheel in wheels.values():
 			print("wheel")
