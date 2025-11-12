@@ -1,0 +1,27 @@
+[gd_scene load_steps=2 format=3 uid="uid://b7jsqjb3fa0c2"]
+
+[ext_resource type="PackedScene" uid="uid://o2x7sakvmqhi" path="res://assets/blender/export/armature_with_empty_objects.glb" id="1_vngpe"]
+
+[node name="EmptyObjectSpider" type="CharacterBody3D"]
+
+[node name="armature_with_empty_objects" parent="." instance=ExtResource("1_vngpe")]
+
+[node name="Cylinder_001" parent="armature_with_empty_objects/BodyController" index="1"]
+transform = Transform3D(-1.2588879e-08, 0.59999996, 0, -0.288, -2.6226832e-08, 0, 0, 0, 0.288, 0, 2, 1)
+
+[node name="Cylinder_003" parent="armature_with_empty_objects/BodyController" index="3"]
+transform = Transform3D(-1.2588879e-08, 0.59999996, 0, -0.288, -2.6226832e-08, 0, 0, 0, 0.288, 0, 2, -0.9999999)
+
+[node name="SphereS" parent="armature_with_empty_objects" index="5"]
+transform = Transform3D(0.25, 0, 0, 0, -1.0927847e-08, -0.25, 0, 0.25, -1.0927847e-08, 9, 0.09999999, 3.9999998)
+
+[node name="SphereE" parent="armature_with_empty_objects" index="6"]
+transform = Transform3D(5.368049e-16, -1.8874475e-08, 0.25, 0.25, 1.8874475e-08, 8.881784e-16, -1.8874475e-08, 0.25, 1.8874475e-08, 0, 0.09999997, -4)
+
+[node name="SphereN" parent="armature_with_empty_objects" index="7"]
+transform = Transform3D(-0.25, -3.774895e-08, -1.650059e-15, 0, -1.0927847e-08, 0.25, -3.774895e-08, 0.25, 1.0927847e-08, -8, 0.10000346, 3.9999998)
+
+[node name="SphereW" parent="armature_with_empty_objects" index="8"]
+transform = Transform3D(4.7767137e-16, -1.0927847e-08, -0.25, -0.25, -1.0927847e-08, 0, -1.0927847e-08, 0.25, -1.0927847e-08, 0, 0.09999997, 12)
+
+[editable path="armature_with_empty_objects"]

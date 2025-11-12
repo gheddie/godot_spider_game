@@ -10,12 +10,34 @@
 
 [node name="spider_actions" parent="." instance=ExtResource("1_u58b1")]
 
+[node name="Skeleton3D" parent="spider_actions/Armature4" index="0"]
+bones/1/rotation = Quaternion(0, 0, 0.0054911003, 0.9999849)
+bones/2/rotation = Quaternion(0.11172414, -5.3900998e-11, -5.152505e-10, 0.99373925)
+bones/3/rotation = Quaternion(-0.2714534, -3.4108313e-11, 2.1753044e-10, 0.9624516)
+bones/4/rotation = Quaternion(-0.4243063, 1.9352663e-10, 5.2371097e-11, 0.9055187)
+bones/5/rotation = Quaternion(-0.30468816, 7.483216e-09, 9.07412e-09, 0.9524522)
+bones/6/position = Vector3(50.33333, -20, -0.3333303)
+bones/6/rotation = Quaternion(0.5000001, -0.49999988, 0.49999988, 0.5000001)
+
+[node name="Bone_005" parent="spider_actions/Armature4/Skeleton3D" index="0"]
+transform = Transform3D(0.01098202, -0.248074, 0.9686788, -1.9311816e-08, -0.96873724, -0.2480889, 0.9999397, 0.0027244994, -0.010638697, 52.824345, -10.30966, -0.36049977)
+
+[node name="Bone_004" parent="spider_actions/Armature4/Skeleton3D" index="1"]
+transform = Transform3D(0.010982034, 0.36020878, 0.9328071, -3.139768e-10, -0.93286335, 0.36023057, 0.9999397, -0.003956064, -0.010244737, 49.222256, -0.98102665, -0.32093912)
+
+[node name="Bone_003" parent="spider_actions/Armature4/Skeleton3D" index="2"]
+transform = Transform3D(0.010982034, 0.947309, 0.32013264, 3.7950358e-11, -0.32015198, 0.94736624, 0.9999397, -0.0104040075, -0.0035159201, 39.749165, 2.2204933, -0.21689907)
+
+[node name="Bone_002" parent="spider_actions/Armature4/Skeleton3D" index="3"]
+transform = Transform3D(0.010982034, 0.9749766, -0.22203593, -8.0047635e-12, 0.22204933, 0.9750354, 0.9999397, -0.010707872, 0.0024385531, 29.999397, 0, -0.10982035)
+
+[node name="Bone_001" parent="spider_actions/Armature4/Skeleton3D" index="4"]
+transform = Transform3D(0.010982035, 0.9999397, 0, 0, 0, 1, 0.9999397, -0.010982035, 0, 20, 0, 0)
+
 [node name="AnimationTree" type="AnimationTree" parent="."]
 root_node = NodePath("../spider_actions")
 tree_root = SubResource("AnimationRootNode_u58b1")
 anim_player = NodePath("../spider_actions/AnimationPlayer")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="AnimationTree"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_u58b1")

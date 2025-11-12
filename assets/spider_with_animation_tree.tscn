@@ -1,0 +1,50 @@
+[gd_scene load_steps=10 format=3 uid="uid://xjkp0xtxn08n"]
+
+[ext_resource type="PackedScene" uid="uid://c0ff0o6dnb5t0" path="res://assets/blender/export/StabbingSpider.glb" id="1_5bo6m"]
+[ext_resource type="Script" uid="uid://byt3etawwndnh" path="res://script/animation_tree_test.gd" id="2_ugwn1"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ehthw"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_c0v0b"]
+animation = &"LeftLegAnimation"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ehthw"]
+animation = &"StabAction"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_c0v0b"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_elwjs"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ehthw"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_elwjs"]
+states/End/position = Vector2(743, 87)
+states/LeftLegAnimation/node = SubResource("AnimationNodeAnimation_c0v0b")
+states/LeftLegAnimation/position = Vector2(537.7868, 87)
+states/StabAction/node = SubResource("AnimationNodeAnimation_ehthw")
+states/StabAction/position = Vector2(330.7868, 87)
+states/Start/position = Vector2(202, 87)
+transitions = ["Start", "StabAction", SubResource("AnimationNodeStateMachineTransition_c0v0b"), "StabAction", "LeftLegAnimation", SubResource("AnimationNodeStateMachineTransition_elwjs"), "LeftLegAnimation", "End", SubResource("AnimationNodeStateMachineTransition_ehthw")]
+graph_offset = Vector2(100.786804, 0)
+
+[node name="Spider" instance=ExtResource("1_5bo6m")]
+script = ExtResource("2_ugwn1")
+
+[node name="Cylinder_161" parent="." index="11"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 29.000004, -4)
+
+[node name="Camera3D" type="Camera3D" parent="." index="13"]
+transform = Transform3D(-3.8714358e-08, -0.5, 0.8660254, -2.2351745e-08, 0.8660254, 0.5, -1, 0, -4.470349e-08, 77.100006, 45.5, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="14"]
+shape = SubResource("BoxShape3D_ehthw")
+
+[node name="AnimationTree" type="AnimationTree" parent="." index="15"]
+tree_root = SubResource("AnimationNodeStateMachine_elwjs")
+anim_player = NodePath("../AnimationPlayer")
