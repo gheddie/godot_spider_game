@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://dh3s7bf6edgvj"]
+
+[ext_resource type="PackedScene" uid="uid://c1yf7bd2sny4w" path="res://assets/blender/export/spinning_wheel.glb" id="1_0qtbi"]
+[ext_resource type="Script" uid="uid://djknej8pak7ra" path="res://script/spinning_wheel.gd" id="2_mr2qe"]
+
+[node name="spinning_wheel" instance=ExtResource("1_0qtbi")]
+script = ExtResource("2_mr2qe")
+
+[node name="Rotator" parent="." index="0"]
+transform = Transform3D(3.9600003, 0, 0, 0, -3.934025e-08, -3.9600003, 0, 0.90000004, -1.730971e-07, 0, 0, 0)

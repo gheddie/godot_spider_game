@@ -1,0 +1,77 @@
+[gd_scene load_steps=3 format=3 uid="uid://cksf5ayayooiq"]
+
+[ext_resource type="PackedScene" uid="uid://08eek12xv5tq" path="res://assets/car_ground_plate.tscn" id="1_m154h"]
+[ext_resource type="PackedScene" uid="uid://dxjxtb2fl0cea" path="res://assets/column_obstacle.tscn" id="2_8b08k"]
+
+[node name="CarTrailElement" type="Node3D"]
+
+[node name="CarGroundPlate1" parent="." instance=ExtResource("1_m154h")]
+
+[node name="ColumnObstacle1" parent="." instance=ExtResource("2_8b08k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
+
+[node name="CarGroundPlate2" parent="." instance=ExtResource("1_m154h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0)
+
+[node name="ColumnObstacle2" parent="." instance=ExtResource("2_8b08k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0)
+
+[node name="CarGroundPlate3" parent="." instance=ExtResource("1_m154h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+
+[node name="ColumnObstacle3" parent="." instance=ExtResource("2_8b08k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 2)
+
+[node name="CarGroundPlate4" parent="." instance=ExtResource("1_m154h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 2)
+
+[node name="ColumnObstacle4" parent="." instance=ExtResource("2_8b08k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 2)
+
+[node name="CarGroundPlate5" parent="." instance=ExtResource("1_m154h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
+
+[node name="ColumnObstacle5" parent="." instance=ExtResource("2_8b08k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 4)
+
+[node name="CarGroundPlate6" parent="." instance=ExtResource("1_m154h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 4)
+
+[node name="ColumnObstacle6" parent="." instance=ExtResource("2_8b08k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 4)
+
+[node name="CarGroundPlate7" parent="." instance=ExtResource("1_m154h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6)
+
+[node name="ColumnObstacle7" parent="." instance=ExtResource("2_8b08k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 6)
+
+[node name="CarGroundPlate8" parent="." instance=ExtResource("1_m154h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 6)
+
+[node name="ColumnObstacle8" parent="." instance=ExtResource("2_8b08k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 6)
+
+[node name="CarGroundPlate9" parent="." instance=ExtResource("1_m154h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4)
+
+[node name="ColumnObstacle9" parent="." instance=ExtResource("2_8b08k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -4)
+
+[node name="CarGroundPlate10" parent="." instance=ExtResource("1_m154h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -4)
+
+[node name="ColumnObstacle10" parent="." instance=ExtResource("2_8b08k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -4)
+
+[node name="CarGroundPlate11" parent="." instance=ExtResource("1_m154h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.9999999)
+
+[node name="ColumnObstacle11" parent="." instance=ExtResource("2_8b08k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -1.9999999)
+
+[node name="CarGroundPlate12" parent="." instance=ExtResource("1_m154h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -1.9999999)
+
+[node name="ColumnObstacle12" parent="." instance=ExtResource("2_8b08k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -1.9999999)
